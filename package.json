@@ -7,6 +7,15 @@
     "type": "git",
     "url": "https://github.com/vfeskov/vanilla-back-to-top.git"
   },
+  "keywords": [
+    "back to top",
+    "zero dependency",
+    "vanillajs",
+    "configurable",
+    "hexo",
+    "blog",
+    "prerendered"
+  ],
   "scripts": {
     "precommit": "npm run build && git add ./dist/index.js",
     "build": "node build",
