@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "precommit": "npm run build && git add ./dist/index.js",
+    "postversion": "node postversion",
     "build": "node build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
