@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "precommit": "npm run build",
+    "precommit": "npm run build && git add ./dist/index.js",
     "build": "node build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
