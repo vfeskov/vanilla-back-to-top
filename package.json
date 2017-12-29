@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Configurable zero dependency Back To Top button",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vfeskov/vanilla-back-to-top.git"
+  },
   "scripts": {
     "precommit": "npm run build && git add ./dist/index.js",
     "build": "node build",
