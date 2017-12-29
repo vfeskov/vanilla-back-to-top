@@ -1,7 +1,7 @@
 {
   "name": "vanilla-back-to-top",
   "version": "1.0.0",
-  "description": "",
+  "description": "Configurable zero dependency Back To Top button",
   "main": "index.js",
   "scripts": {
     "precommit": "npm run build && git add ./dist/index.js",
