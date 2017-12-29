@@ -12,8 +12,8 @@ fs.writeFileSync(
   )
 )
 
-exec('git add ./README.md && git commit -m "Update README.md"', (err, stdout, stderr) => {
+exec('git add ./README.md && git commit -m "Update README.md" && git push origin master && npm publish', (err, stdout, stderr) => {
   if (err) { return; }
-  console.log(`stdout: ${stdout}`);
+  console.log(stdout);
   console.error(`stderr: ${stderr}`);
 })
