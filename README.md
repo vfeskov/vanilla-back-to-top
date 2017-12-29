@@ -10,10 +10,9 @@ Ideal for pre-rendered blogs with no frameworks, e.g., [Hexo](https://hexo.io/).
 
 Add this to your HTML:
 ```
-<script src="https://unpkg.com/vanilla-back-to-top/dist/index.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@1.0.3/dist/index.js"></script>
 <script>addBackToTop({})</script>
 ```
-
 
 Optionally customise CSS of the button using `#back-to-top` selector, e.g.:
 ```
