@@ -1,0 +1,18 @@
+{
+  "name": "vanilla-back-to-top",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "npm run build",
+    "build": "node build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vladimir Feskov",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "uglify-es": "^3.3.3"
+  }
+}
