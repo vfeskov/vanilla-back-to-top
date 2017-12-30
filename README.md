@@ -10,13 +10,13 @@ Ideal for pre-rendered blogs with no frameworks, e.g., [Hexo](https://hexo.io/).
 
 Add this to your HTML:
 ```
-<script src="https://unpkg.com/vanilla-back-to-top@2.0.0/dist/vanilla-back-to-top.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@2.0.1/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop({})</script>
 ```
 
 If you want to target older browsers and IE 10 add this instead (~15% larger when gzipped):
 ```
-<script src="https://unpkg.com/vanilla-back-to-top@1.1.3/dist/vanilla-back-to-top.ie10.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@2.0.1/dist/vanilla-back-to-top.ie10.min.js"></script>
 <script>addBackToTop({})</script>
 ```
 
