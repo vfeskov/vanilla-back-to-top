@@ -7,7 +7,7 @@ const content = fs.readFileSync('./README.md').toString()
 fs.writeFileSync(
   './README.md',
   content.replace(
-    new RegExp('(https://unpkg.com/vanilla-back-to-top@)[^/]*(/dist/index.js)'),
+    new RegExp('(https://unpkg.com/vanilla-back-to-top@)[^/]*(/dist)'),
     `$1${version}$2`
   )
 )

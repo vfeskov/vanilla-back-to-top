@@ -2,7 +2,7 @@
   "name": "vanilla-back-to-top",
   "version": "1.1.3",
   "description": "Configurable zero dependency Back To Top button",
-  "main": "dist/index.js",
+  "main": "dist/vanilla-back-to-top.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/vfeskov/vanilla-back-to-top.git"
@@ -17,7 +17,7 @@
     "prerendered"
   ],
   "scripts": {
-    "precommit": "npm run build && git add ./dist/index.js",
+    "precommit": "npm run build && git add ./dist",
     "postversion": "node scripts/postversion",
     "build": "node scripts/build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,7 +26,12 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "autoprefixer": "^7.2.3",
     "husky": "^0.14.3",
+    "postcss": "^6.0.14",
+    "rimraf": "^2.6.2",
     "uglify-es": "^3.3.3"
   }
 }
