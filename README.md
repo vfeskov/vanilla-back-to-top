@@ -35,6 +35,7 @@ Optionally customise CSS of the button using `#back-to-top` selector, e.g.:
 addBackToTop({
   id: 'back-to-top',
   showWhenScrollTopIs: 300,
+  onClickScrollTo: 0,
   innerElement: document.createTextNode('Up'),
   size: 50,
   fontSize: 14,
@@ -49,6 +50,7 @@ addBackToTop({
 
 - `id` - id attribute of the button
 - `showWhenScrollTopIs` - show the button when page got scrolled by this number of pixels
+- `onClickScrollTo` - where to scroll to when the button gets clicked, `0` means the very top
 - `innerElement` - DOM element to put inside the button; with jQuery you can put something like this: `$('<svg>...</svg>').get(0)`
 - `size` - width and height of the button in pixels
 - `fontSize` - font size of the text inside the button

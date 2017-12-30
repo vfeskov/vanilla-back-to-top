@@ -2,6 +2,7 @@ function addBackToTop ({
   id = 'back-to-top',
   scrollContainer = document.documentElement,
   showWhenScrollTopIs = 300,
+  onClickScrollTo = 0,
   innerElement = document.createTextNode('Up'),
   size = 50,
   fontSize = 14,
@@ -16,11 +17,11 @@ function addBackToTop ({
   let hidden
   hide()
 
-  scrollEventTarget().onscroll = () => {
+  scrollEventTarget().addEventListener(() => {
     scrollContainer.scrollTop >= showWhenScrollTopIs ?
       show() :
       hide()
-  }
+  })
 
   function show () {
     if (!hidden) { return }
@@ -34,7 +35,7 @@ function addBackToTop ({
     hidden = true
   }
 
-  function scrollEventTarget() {
+  function scrollEventTarget () {
     return scrollContainer === document.documentElement ? window : scrollContainer
   }
 
@@ -42,7 +43,10 @@ function addBackToTop ({
     const upEl = document.createElement('div')
     upEl.id = id
     const upLinkEl = document.createElement('a')
-    upLinkEl.setAttribute('href', '#')
+    upLinkEl.addEventListener('click', event => {
+      event.preventDefault()
+      scrollContainer.scrollTop = onClickScrollTo
+    })
     upLinkEl.appendChild(innerElement)
     upEl.appendChild(upLinkEl)
     document.body.appendChild(upEl)
