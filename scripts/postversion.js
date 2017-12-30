@@ -8,7 +8,7 @@ fs.writeFileSync(
   './README.md',
   content.replace(
     new RegExp('(https://unpkg.com/vanilla-back-to-top@)[^/]*(/dist/index.js)'),
-    `$1@${version}$2`
+    `$1${version}$2`
   )
 )
 
