@@ -72,6 +72,7 @@ function addBackToTop ({
         background: ${backgroundColor};
         border-radius: ${size}px;
         color: ${textColor};
+        cursor: pointer;
         display: flex;
         font-size: ${fontSize}px;
         height: ${size}px;
