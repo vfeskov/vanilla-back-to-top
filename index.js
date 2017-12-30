@@ -17,7 +17,7 @@ function addBackToTop ({
   let hidden
   hide()
 
-  scrollEventTarget().addEventListener(() => {
+  scrollEventTarget().addEventListener('scroll', () => {
     scrollContainer.scrollTop >= showWhenScrollTopIs ?
       show() :
       hide()
