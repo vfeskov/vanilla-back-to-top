@@ -14,7 +14,7 @@ Add this to your HTML:
 <script>addBackToTop({})</script>
 ```
 
-If you want to target older browsers and IE 10 add this instead:
+If you want to target older browsers and IE 10 add this instead (~15% larger when gzipped):
 ```
 <script src="https://unpkg.com/vanilla-back-to-top@1.1.3/dist/vanilla-back-to-top.ie10.min.js"></script>
 <script>addBackToTop({})</script>
