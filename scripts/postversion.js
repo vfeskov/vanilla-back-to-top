@@ -1,6 +1,6 @@
 const fs = require('fs')
 const { exec } = require('child_process');
-const { version } = require('./package.json')
+const { version } = require('../package.json')
 
 const content = fs.readFileSync('./README.md').toString()
 
@@ -12,7 +12,7 @@ fs.writeFileSync(
   )
 )
 
-exec('git add ./README.md && git commit -m "Update README.md" && git push origin master && npm publish', (err, stdout, stderr) => {
+exec('git add ./README.md && git commit -m "Update README.md" && git push --tags origin master && npm publish', (err, stdout, stderr) => {
   if (err) { return; }
   console.log(stdout);
   console.error(`stderr: ${stderr}`);
