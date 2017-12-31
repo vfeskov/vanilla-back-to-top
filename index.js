@@ -13,15 +13,16 @@ function addBackToTop ({
 }) {
   appendStyles()
   const upEl = appendElement()
-
   let hidden
-  hide()
 
-  scrollEventTarget().addEventListener('scroll', () => {
+  adapt()
+  scrollEventTarget().addEventListener('scroll', adapt)
+
+  function adapt () {
     scrollContainer.scrollTop >= showWhenScrollTopIs ?
       show() :
       hide()
-  })
+  }
 
   function show () {
     if (!hidden) { return }
