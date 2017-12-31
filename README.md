@@ -2,7 +2,7 @@
 
 Configurable zero dependency Back To Top button that will work for [over 93% of all users](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D0%2Cfirefox+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7) worldwide.
 
-Ideal for pre-rendered blogs with no frameworks, e.g., [Hexo](https://hexo.io/).
+Ideal for pre-rendered blogs with no frameworks, e.g., [Jekyll](https://jekyllrb.com), [Hugo](http://gohugo.io/) or [Hexo](https://hexo.io/).
 
 <img src="http://i.pi.gy/DoaQa.gif" width="300px"/>
 
