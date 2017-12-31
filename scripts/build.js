@@ -5,35 +5,34 @@ const presetEnv = require('@babel/preset-env')
 const rimraf = require('rimraf')
 const postcss  = require('postcss')
 const autoprefixer = require('autoprefixer')
+const browsers = require('../package.json').browserslist
+const prefixer = autoprefixer({ browsers })
 
 const distDir = './dist'
 const original = fs.readFileSync('./index.js').toString()
 
 recreateDistDir()
-build({ browsers: ['> 5%'] })
-build({ browsers: ['> 1%', 'ie 10'], suffix: '.ie10' })
+build()
 
 function recreateDistDir() {
   rimraf.sync(distDir)
   fs.mkdirSync(distDir)
 }
 
-async function build ({ browsers, suffix = '' }) {
-  const cssAdapted = await prefixAndMinifyCss(original, browsers)
+async function build () {
+  const cssAdapted = await prefixAndMinifyCss(original)
   const { code } = babel.transformSync(cssAdapted, {
     presets: [[presetEnv, {
-      targets: {
-        browsers
-      }
+      useBuiltIns: 'entry'
     }]]
   })
   const uglified = UglifyES.minify(code).code
-  const filePath = `${distDir}/vanilla-back-to-top${suffix}.min.js`
+  const filePath = `${distDir}/vanilla-back-to-top.min.js`
   fs.writeFileSync(filePath, uglified)
-  console.log(`${filePath} built successfully.`)
+  console.log(`Build was successfull.`)
 }
 
-async function prefixAndMinifyCss (text, browsers) {
+async function prefixAndMinifyCss (text) {
   const css = text.match(/\/\*minifyCss\*\/`[^`]*`/gm) || []
   if (!css.length) {
     return text
@@ -45,7 +44,7 @@ async function prefixAndMinifyCss (text, browsers) {
       .replace('/*minifyCss*/', '')
       .replace(/`/g, '')
     const varsEscaped = noQuotes.replace(/\$\{([^\}]+)\}/g, '$\\{$1\\}')
-    const prefixed = await postcss([ autoprefixer({ browsers })]).process(varsEscaped).css
+    const prefixed = await postcss([prefixer]).process(varsEscaped).css
     const varsRestored = prefixed.replace(/\$\\\{([^\}]+)\\\}/g, '${$1}')
     const minified = varsRestored
       .replace(/\n\s*/g, '')

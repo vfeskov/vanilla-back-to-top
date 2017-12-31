@@ -1,6 +1,6 @@
 # Vanilla Back To Top
 
-Configurable zero dependency Back To Top button.
+Configurable zero dependency Back To Top button that will work for [over 95% of all users](http://browserl.ist/?q=ie+%3E%3D10%2Cedge+%3E%3D15%2Cfirefox+%3E%3D28%2Cchrome+%3E%3D21%2Csafari+%3E%3D6.1%2Copera+%3E%3D15%2Cios+%3E%3D7.1%2Candroid+%3E%3D4.4%2C%3E%3D0.5%25) worldwide.
 
 Ideal for pre-rendered blogs with no frameworks, e.g., [Hexo](https://hexo.io/).
 
@@ -11,12 +11,6 @@ Ideal for pre-rendered blogs with no frameworks, e.g., [Hexo](https://hexo.io/).
 Add this to your HTML:
 ```
 <script src="https://unpkg.com/vanilla-back-to-top@2.0.1/dist/vanilla-back-to-top.min.js"></script>
-<script>addBackToTop({})</script>
-```
-
-If you want to target older browsers and IE 10 add this instead (~15% larger when gzipped):
-```
-<script src="https://unpkg.com/vanilla-back-to-top@2.0.1/dist/vanilla-back-to-top.ie10.min.js"></script>
 <script>addBackToTop({})</script>
 ```
 
@@ -65,3 +59,19 @@ addBackToTop({
 - `textColor` - text color of the button
 - `zIndex` - z-index of the button
 - `scrollContainer` - if only part of your website gets scrolled, e.g., when your sidebar never scrolls with content, put the scrolled DOM element here
+
+## Supported browsers
+
+- IE >=10,
+- Edge >=15
+- Firefox >=28
+- Chrome >=21
+- Safari >=6.1
+- Opera >=15
+- iOS Safari >=7.1
+- Android Browser >=4.4
+- All other browsers used by more than 0.5% of users
+
+This gives [95.12% global coverage](http://browserl.ist/?q=ie+%3E%3D10%2Cedge+%3E%3D15%2Cfirefox+%3E%3D28%2Cchrome+%3E%3D21%2Csafari+%3E%3D6.1%2Copera+%3E%3D15%2Cios+%3E%3D7.1%2Candroid+%3E%3D4.4%2C%3E%3D0.5%25).
+
+On Opera Mini and IE 10 the button doesn't appear or disappear as nicely as in other browsers, otherwise it's fully functional.

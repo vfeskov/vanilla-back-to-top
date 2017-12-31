@@ -22,6 +22,17 @@
     "build": "node scripts/build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "browserslist": [
+    "ie >=10",
+    "edge >=15",
+    "firefox >=28",
+    "chrome >=21",
+    "safari >=6.1",
+    "opera >=15",
+    "ios >=7.1",
+    "android >=4.4",
+    ">= 0.5%"
+  ],
   "author": "Vladimir Feskov",
   "license": "MIT",
   "dependencies": {},
