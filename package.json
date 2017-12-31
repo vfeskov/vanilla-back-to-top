@@ -25,7 +25,7 @@
   "browserslist": [
     "explorer >=10",
     "explorermobile >=10",
-    "edge >=15",
+    "edge >=12",
     "firefox >=2",
     "chrome >=4",
     "safari >=5.1",

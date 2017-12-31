@@ -1,6 +1,6 @@
 # Vanilla Back To Top
 
-Configurable zero dependency Back To Top button that will work for [over 93% of all users](http://browserl.ist/?q=ie+%3E%3D10%2Cedge+%3E%3D15%2Cfirefox+%3E%3D28%2Cchrome+%3E%3D21%2Csafari+%3E%3D6.1%2Copera+%3E%3D15%2Cios+%3E%3D7.1%2Candroid+%3E%3D4.4%2Cchromeandroid+%3E%3D62%2Csamsung+%3E%3D4%2CucAndroid+%3E%3D11.4) worldwide.
+Configurable zero dependency Back To Top button that will work for [over 93% of all users](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D0%2Cfirefox+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7) worldwide.
 
 Ideal for pre-rendered blogs with no frameworks, e.g., [Hexo](https://hexo.io/).
 
@@ -64,7 +64,7 @@ addBackToTop({
 
 - Explorer >=10
 - Explorer Mobile >=10
-- Edge >=15
+- Edge >=12
 - Firefox >=2
 - Chrome >=4
 - Safari >=5.1
@@ -76,4 +76,4 @@ addBackToTop({
 - Samsung Internet >=4
 - Blackberry >=7
 
-This gives [93.07% global coverage](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D15%2Cfirefox+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7).
+This gives [93.48% global coverage](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D0%2Cfirefox+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7).
