@@ -10,7 +10,7 @@ Ideal for pre-rendered blogs with no frameworks, e.g., [Hexo](https://hexo.io/).
 
 Add this to your HTML:
 ```
-<script src="https://unpkg.com/vanilla-back-to-top@3.1.0/dist/vanilla-back-to-top.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@3.1.1/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop({})</script>
 ```
 
