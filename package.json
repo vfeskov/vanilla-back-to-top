@@ -23,15 +23,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": [
-    "ie >=10",
+    "explorer >=10",
+    "explorermobile >=10",
     "edge >=15",
-    "firefox >=28",
-    "chrome >=21",
-    "safari >=6.1",
-    "opera >=15",
+    "firefox >=2",
+    "chrome >=4",
+    "safari >=5.1",
+    "opera >=12.1",
+    "chromeandroid >=62",
     "ios >=7.1",
+    "ucandroid >=11.4",
     "android >=4.4",
-    ">= 0.5%"
+    "samsung >=4",
+    "blackberry >=7"
   ],
   "author": "Vladimir Feskov",
   "license": "MIT",
