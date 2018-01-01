@@ -56,13 +56,13 @@ function addBackToTop ({
   }
 
   function appendStyles () {
-    const styles = /*minifyCss*/`
+    const styles = /*css*/`
       #${id} {
         bottom: ${cornerOffset}px;
         opacity: 1;
         position: fixed;
         right: ${cornerOffset}px;
-        transition: bottom .2s,opacity .2s;
+        transition: bottom 0.2s, opacity 0.2s;
         z-index: ${zIndex};
       }
       #${id}.hidden {
