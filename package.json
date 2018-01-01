@@ -38,9 +38,9 @@
     "hubpress"
   ],
   "scripts": {
-    "precommit": "npm run build && git add ./dist",
-    "postversion": "node scripts/postversion",
     "build": "node scripts/build",
+    "precommit": "npm run build && git add ./dist",
+    "postversion": "node scripts/update-readme.js && sh scripts/fixup-readme.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": [
