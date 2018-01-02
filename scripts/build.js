@@ -12,26 +12,45 @@ const distDir = './dist'
 const original = fs.readFileSync('./index.js').toString()
 
 recreateDistDir()
-build()
+Promise.all([
+  buildForBrowser(),
+  buildUMD()
+]).then(success, error)
 
 function recreateDistDir () {
   rimraf.sync(distDir)
   fs.mkdirSync(distDir)
 }
 
-async function build () {
-  const cssProcessed = await processCss(original)
-  const { code } = babel.transformSync(cssProcessed, {
+async function buildForBrowser () {
+  const result = await build(original)
+  const filePath = `${distDir}/${name}.min.js`
+  fs.writeFileSync(filePath, result)
+}
+
+async function buildUMD () {
+  const umdTemplate = fs.readFileSync('./scripts/umd-template.js').toString()
+  const originalInUMD = umdTemplate.replace(
+    '\'%THE_FUNCTION%\'',
+    original
+  )
+  const result = await build(originalInUMD)
+  const filePath = `${distDir}/${name}.umd.min.js`
+  fs.writeFileSync(filePath, result)
+}
+
+async function build (source) {
+  const cssProcessed = await processCss(source)
+  const babelified = babel.transformSync(cssProcessed, {
     presets: [[presetEnv, {
       // use browserslist config from package.json
       useBuiltIns: 'entry'
     }]]
-  })
-  const uglified = UglifyES.minify(code).code
-  const filePath = `${distDir}/${name}.min.js`
-  fs.writeFileSync(filePath, uglified)
-  console.log(`Build was successfull.`)
+  }).code
+  const uglified = UglifyES.minify(babelified).code
+  return uglified
 }
+
 
 async function processCss (text) {
   const css = text.match(/\/\*css\*\/`[^`]*`/gm) || []
@@ -56,3 +75,10 @@ async function processCss (text) {
   return result
 }
 
+function success () {
+  console.log('Build was successful')
+}
+
+function error () {
+  console.log('Build failed')
+}
