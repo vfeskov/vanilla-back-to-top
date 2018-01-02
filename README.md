@@ -12,11 +12,11 @@ Consider [&#9733; starring](https://github.com/vfeskov/vanilla-back-to-top) if y
 
 Add this to your HTML:
 ```html
-<script src="https://unpkg.com/vanilla-back-to-top@4.0.1/dist/vanilla-back-to-top.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@4.0.2/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop({})</script>
 ```
 
-If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@4.0.1/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
+If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@4.0.2/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
 ```html
 <script src="/assets/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop({})</script>
