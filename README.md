@@ -31,7 +31,7 @@ addBackToTop({})
 ```
 
 Optionally customise CSS of the button using `#back-to-top` selector, e.g.:
-```
+```css
 #back-to-top a {
   text-indent: -9999px;
   background-image: url(back-to-top.png)
@@ -47,7 +47,7 @@ Optionally customise CSS of the button using `#back-to-top` selector, e.g.:
 ## Options
 
 `addBackToTop` function accepts many options, e.g.:
-```
+```js
 addBackToTop({
   id: 'back-to-top',
   showWhenScrollTopIs: 300,
