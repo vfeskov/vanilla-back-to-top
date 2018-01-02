@@ -1,6 +1,6 @@
 {
   "name": "vanilla-back-to-top",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Configurable zero dependency Back To Top button",
   "main": "dist/vanilla-back-to-top.umd.min.js",
   "repository": {
