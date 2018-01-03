@@ -6,7 +6,7 @@ Ideal for pre-rendered static websites with no frameworks, e.g., [Jekyll](https:
 
 <img src="http://i.pi.gy/DoaQa.gif" width="300px"/>
 
-Consider [&#9733; starring](https://github.com/vfeskov/vanilla-back-to-top) if you like it!
+[&#9733; Star me on GitHub](https://github.com/vfeskov/vanilla-back-to-top)
 
 ## How to use
 
