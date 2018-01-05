@@ -9,17 +9,17 @@
 }(typeof self !== 'undefined' ? self : this, function (exports) {
   exports.addBackToTop = addBackToTop
 
-  // FUNCTION_START
+  // FUNCTION START
   function addBackToTop (params = {}) {
     const {
       id = 'back-to-top',
       scrollContainer = document.documentElement,
-      showWhenScrollTopIs = 300,
-      onClickScrollTo = 0,
-      innerElement = document.createTextNode('Up'),
-      size = 50,
-      fontSize = 14,
-      cornerOffset = 20,
+      showWhenScrollTopIs = 1, // px
+      onClickScrollTo = 0, // px
+      scrollDuration = 100, // ms
+      innerElement = document.createTextNode('^'),
+      size = 56, // px
+      cornerOffset = 20, // px
       backgroundColor = '#000',
       textColor = '#fff',
       zIndex = 1
@@ -61,7 +61,7 @@
       const upLinkEl = document.createElement('a')
       upLinkEl.addEventListener('click', event => {
         event.preventDefault()
-        scrollContainer.scrollTop = onClickScrollTo
+        scrollUp()
       })
       upLinkEl.appendChild(innerElement)
       upEl.appendChild(upLinkEl)
@@ -70,6 +70,8 @@
     }
 
     function appendStyles () {
+      const fontSize = Math.round(0.64 * size)
+      const lineHeight = Math.round(1.28 * size)
       const styles = /*css*/`
         #${id} {
           bottom: ${cornerOffset}px;
@@ -84,16 +86,18 @@
           opacity: 0;
         }
         #${id} a {
-          align-items: center;
           background: ${backgroundColor};
           border-radius: ${size}px;
           color: ${textColor};
           cursor: pointer;
-          display: flex;
+          display: block;
+          font-family: monospace;
           font-size: ${fontSize}px;
           height: ${size}px;
-          justify-content: center;
+          line-height: ${lineHeight}px;
+          text-align: center;
           text-decoration: none;
+          vertical-align: middle;
           width: ${size}px;
         }
       `
@@ -101,6 +105,24 @@
       styleEl.appendChild(document.createTextNode(styles))
       document.head.insertAdjacentElement('afterbegin', styleEl)
     }
+
+    function scrollUp () {
+      if (scrollDuration <= 0 || typeof performance === 'undefined' || typeof requestAnimationFrame === 'undefined') {
+        scrollContainer.scrollTop = onClickScrollTo
+      }
+      const start = performance.now()
+      const initScrollTop = scrollContainer.scrollTop
+      const pxsToScrollBy = initScrollTop - onClickScrollTo
+
+      requestAnimationFrame(step)
+
+      function step (timestamp) {
+        const delta = timestamp - start
+        const progress = Math.min(delta / scrollDuration, 1)
+        scrollContainer.scrollTop = initScrollTop - Math.round(progress * pxsToScrollBy)
+        if (progress < 1) { requestAnimationFrame(step) }
+      }
+    }
   }
-  // FUNCTION_END
+  // FUNCTION END
 }))

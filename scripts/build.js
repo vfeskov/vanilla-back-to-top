@@ -23,7 +23,7 @@ function recreateDistDir () {
 }
 
 async function buildGlobalStandalone () {
-  const [justTheFunction] = original.match(/\/\/ FUNCTION_START[\s\S]*\/\/ FUNCTION_END/m)
+  const [justTheFunction] = original.match(/\/\/ FUNCTION START[\s\S]*\/\/ FUNCTION END/m)
   const result = await build(justTheFunction)
   const filePath = `${distDir}/${name}.min.js`
   fs.writeFileSync(filePath, result)
