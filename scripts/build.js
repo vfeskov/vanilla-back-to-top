@@ -13,7 +13,7 @@ const original = fs.readFileSync('./index.js').toString()
 
 recreateDistDir()
 Promise.all([
-  buildForBrowser(),
+  buildGlobalStandalone(),
   buildUMD()
 ]).then(success, error)
 
@@ -22,19 +22,15 @@ function recreateDistDir () {
   fs.mkdirSync(distDir)
 }
 
-async function buildForBrowser () {
-  const result = await build(original)
+async function buildGlobalStandalone () {
+  const [justTheFunction] = original.match(/\/\/ FUNCTION_START[\s\S]*\/\/ FUNCTION_END/m)
+  const result = await build(justTheFunction)
   const filePath = `${distDir}/${name}.min.js`
   fs.writeFileSync(filePath, result)
 }
 
 async function buildUMD () {
-  const umdTemplate = fs.readFileSync('./scripts/umd-template.js').toString()
-  const originalInUMD = umdTemplate.replace(
-    '\'%THE_FUNCTION%\'',
-    original
-  )
-  const result = await build(originalInUMD)
+  const result = await build(original)
   const filePath = `${distDir}/${name}.umd.min.js`
   fs.writeFileSync(filePath, result)
 }

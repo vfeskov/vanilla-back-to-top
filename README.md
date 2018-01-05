@@ -1,38 +1,47 @@
 # Vanilla Back To Top
 
-Configurable zero dependency Back To Top button that will work for [93.86% of all users](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D0%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D57%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Coperamobile+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7) worldwide
+Tiny and configurable Back To Top button with no dependencies that will work for [basically all users in the world](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D0%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D57%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Coperamobile+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7)
 
-Ideal for pre-rendered static websites with no frameworks, e.g., [Jekyll](https://jekyllrb.com), [Hugo](http://gohugo.io/) or [Hexo](https://hexo.io/)
+Works great with frameworks ([React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc) and without them, for example, on pre-rendered static websites like [Jekyll](https://jekyllrb.com), [Hugo](http://gohugo.io/) or [Hexo](https://hexo.io/)
 
 <img src="http://i.pi.gy/DoaQa.gif" width="300px"/>
 
-[&#9733; Star me on GitHub](https://github.com/vfeskov/vanilla-back-to-top)
-
 ## How to use
+
+### Global standalone
+
+This is the simplest way to use it, works great with static or non-SPA websites.
 
 Add this to your HTML:
 ```html
 <script src="https://unpkg.com/vanilla-back-to-top@4.0.4/dist/vanilla-back-to-top.min.js"></script>
-<script>addBackToTop({})</script>
+<script>addBackToTop()</script>
 ```
 
 If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@4.0.4/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
 ```html
 <script src="/assets/vanilla-back-to-top.min.js"></script>
-<script>addBackToTop({})</script>
+<script>addBackToTop()</script>
 ```
 
-There's also a [UMD](https://github.com/vfeskov/vanilla-back-to-top/blob/master/scripts/umd-template.js) [build](https://github.com/vfeskov/vanilla-back-to-top/blob/master/dist/vanilla-back-to-top.umd.min.js) available so you could import it in your asset pipepline:
+### Isolated UMD module
+
+This is how you would use it with single-page apps on React, Angular, Vue etc, or generally with any asset pipeline.
+
+Install the package with npm:
 ```bash
 npm install --save vanilla-back-to-top
 ```
+Import it as ES6, Node.js or RequireJS module, for example:
 ```js
 import { addBackToTop } from 'vanilla-back-to-top'
-addBackToTop({})
-// your vue/react/angular/etc bootstrapping code here
+addBackToTop()
+// your Vue/React/Angular/etc bootstrapping code here
 ```
 
-Optionally customise CSS of the button using `#back-to-top` selector, e.g.:
+## Styling
+
+You can customise CSS of the button using `#back-to-top` selector:
 ```css
 #back-to-top a {
   text-indent: -9999px;
@@ -46,9 +55,9 @@ Optionally customise CSS of the button using `#back-to-top` selector, e.g.:
 }
 ```
 
-## Options
+## More options
 
-`addBackToTop` function accepts many options, e.g.:
+`addBackToTop` function can be called with many options:
 ```js
 addBackToTop({
   id: 'back-to-top',
@@ -66,36 +75,18 @@ addBackToTop({
 ```
 ^ All these are also default values.
 
-- `id` - id attribute of the button
-- `showWhenScrollTopIs` - show the button when page got scrolled by this number of pixels
-- `onClickScrollTo` - where to scroll to when the button gets clicked, `0` means the very top
-- `innerElement` - DOM element to put inside the button; with jQuery you can put something like this: `$('<svg>...</svg>').get(0)`
-- `size` - width and height of the button in pixels
-- `fontSize` - font size of the text inside the button
-- `cornerOffset` - right and bottom offset of the button relative to viewport
-- `backgroundColor` - background color of the button
-- `textColor` - text color of the button
-- `zIndex` - z-index of the button
-- `scrollContainer` - if only part of your website gets scrolled, e.g., when your sidebar never scrolls with content, put the scrolled DOM element here
+|Option|Description|
+|-|-|
+|`id`|id attribute of the button|
+|`showWhenScrollTopIs`|Show the button when page got scrolled by this number of pixels|
+|`onClickScrollTo`|Where to scroll to, in pixels, when the button gets clicked, `0` means the very top|
+|`innerElement`|DOM element to put inside the button; with jQuery you can put something like this: `$('<svg>...</svg>').get(0)`|
+|`size`|Width and height of the button in pixels|
+|`fontSize`|Font size of the text inside the button|
+|`cornerOffset`|Right and bottom offset of the button relative to viewport|
+|`backgroundColor`|Background color of the button|
+|`textColor`|Text color of the button|
+|`zIndex`|z-index of the button|
+|`scrollContainer`|If only part of your website gets scrolled, e.g., when your sidebar never scrolls with content, put the scrolled DOM element here|
 
-## Supported browsers
-
-- Android Browser >=4.4
-- Blackberry >=7
-- Chrome >=4
-- Chrome Android
-- Edge >=12
-- Explorer >=10
-- Explorer Mobile >=10
-- Firefox >=4
-- Firefox Android
-- iOS Safari & Chrome >=7.1
-- Opera >=12.1
-- Opera Mobile >=12.1
-- Safari >=5.1
-- Samsung Internet >=4
-- UC Browser Android >=11.4
-
-This gives [93.86% global coverage](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D0%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D57%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Coperamobile+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7).
-
-Limitations are due to [flexbox](https://caniuse.com/#search=flexbox) and [position:fixed](https://caniuse.com/#search=position%3Afixed).
+### [&#9733; Star me on GitHub](https://github.com/vfeskov/vanilla-back-to-top)
