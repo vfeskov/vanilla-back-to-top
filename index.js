@@ -8,7 +8,6 @@
   }
 }(typeof self !== 'undefined' ? self : this, function (exports) {
   exports.addBackToTop = addBackToTop
-
   // FUNCTION START
   function addBackToTop (params = {}) {
     const {
@@ -87,6 +86,7 @@
         }
         #${id} a {
           background: ${backgroundColor};
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
           border-radius: ${size}px;
           color: ${textColor};
           cursor: pointer;

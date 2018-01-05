@@ -9,11 +9,11 @@ const clean = require('postcss-clean')
 const { name } = require('../package.json')
 
 const distDir = './dist'
-const original = fs.readFileSync('./index.js').toString()
+const source = fs.readFileSync('./index.js').toString()
 
 recreateDistDir()
 Promise.all([
-  buildGlobalStandalone(),
+  buildGlobal(),
   buildUMD()
 ]).then(success, error)
 
@@ -22,29 +22,29 @@ function recreateDistDir () {
   fs.mkdirSync(distDir)
 }
 
-async function buildGlobalStandalone () {
-  const [justTheFunction] = original.match(/\/\/ FUNCTION START[\s\S]*\/\/ FUNCTION END/m)
-  const result = await build(justTheFunction)
-  const filePath = `${distDir}/${name}.min.js`
-  fs.writeFileSync(filePath, result)
+async function buildGlobal () {
+  const [justTheFunction] = source.match(/\/\/ FUNCTION START[\s\S]*\/\/ FUNCTION END/m)
+  const backwardsCompatible = await makeBackwardsCompatible(justTheFunction)
+  const uglified = UglifyES.minify(backwardsCompatible).code
+  fs.writeFileSync(`${distDir}/${name}.min.js`, uglified)
 }
 
 async function buildUMD () {
-  const result = await build(original)
-  const filePath = `${distDir}/${name}.umd.min.js`
-  fs.writeFileSync(filePath, result)
+  const backwardsCompatible = await makeBackwardsCompatible(source)
+  fs.writeFileSync(`${distDir}/${name}.umd.js`, backwardsCompatible)
+
+  const uglified = UglifyES.minify(backwardsCompatible).code
+  fs.writeFileSync(`${distDir}/${name}.umd.min.js`, uglified)
 }
 
-async function build (source) {
+async function makeBackwardsCompatible (source) {
   const cssProcessed = await processCss(source)
-  const babelified = babel.transformSync(cssProcessed, {
+  return babel.transformSync(cssProcessed, {
     presets: [[presetEnv, {
       // use browserslist config from package.json
       useBuiltIns: 'entry'
     }]]
   }).code
-  const uglified = UglifyES.minify(babelified).code
-  return uglified
 }
 
 
@@ -75,6 +75,6 @@ function success () {
   console.log('Build was successful')
 }
 
-function error () {
-  console.log('Build failed')
+function error (error) {
+  console.log('Build failed', error)
 }

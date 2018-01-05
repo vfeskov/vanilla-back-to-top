@@ -2,15 +2,17 @@
 
 Tiny and configurable Back To Top button with no dependencies that will work for [basically all users in the world](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D0%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D57%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Coperamobile+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7)
 
-Works great **with** frameworks - [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc, and **without** them, for example, on pre-rendered static websites like [Jekyll](https://jekyllrb.com), [Hugo](http://gohugo.io/) or [Hexo](https://hexo.io/)
+Works great **with** frameworks - [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc, and **without** them, e.g., on pre-rendered static websites like [Jekyll](https://jekyllrb.com), [Hugo](http://gohugo.io/) or [Hexo](https://hexo.io/)
 
-<img src="http://i.pi.gy/DoaQa.gif" width="300px"/>
+<img src="https://i.pi.gy/Vab3n.gif" width="300px"/>
+
+Just the button: <img src="https://i.pi.gy/xkg2d.gif" width="98px"/>
 
 ## How to use
 
 ### Global declaration
 
-This is the simplest way to use it, works great with classic non modular websites.
+This is the simplest way to use it, works great with classic non modular JavaScript.
 
 Add this to your HTML:
 ```html
@@ -26,7 +28,7 @@ If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the f
 
 ### Isolated UMD module
 
-This is how you would use it with a modular app, e.g., on React, Angular, Vue etc.
+This is how you would use it with a modular app, e.g., on [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc
 
 Install the package with npm:
 ```bash
@@ -41,7 +43,7 @@ addBackToTop()
 
 ## Styling
 
-You can customise the looks of the button using `#back-to-top` selector in your CSS:
+You can change the looks of the button using `#back-to-top` selector in your CSS:
 ```css
 #back-to-top a {
   text-indent: -9999px;
@@ -55,7 +57,33 @@ You can customise the looks of the button using `#back-to-top` selector in your 
 }
 ```
 
-## More options
+## Examples
+
+- Change colors: <img src="https://i.pi.gy/GYQNv.png" width="65" />
+```js
+addBackToTop({
+  backgroundColor: 'pink',
+  textColor: '#ad19b7'
+})
+```
+
+- Change size: <img src="https://i.pi.gy/drmp0.png" width="48" />
+```js
+addBackToTop({
+  size: 40
+})
+```
+
+- Use [SVG icon](https://material.io/icons/#ic_keyboard_arrow_up) instead of `^` character: <img src="https://i.pi.gy/O1Ggw.png" width="66" />
+```js
+var backToTopSvg = document.createElement('span');
+backToTopSvg.innerHTML = '<svg height="100%" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="white"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>';
+addBackToTop({
+  innerElement: backToTopSvg
+});
+```
+
+## All options
 
 `addBackToTop` function can be called with many options:
 ```js
@@ -65,7 +93,7 @@ addBackToTop({
   onClickScrollTo: 0,
   scrollDuration: 100,
   innerElement: document.createTextNode('^'),
-  size: 50,
+  size: 56,
   cornerOffset: 20,
   backgroundColor: '#000',
   textColor: '#fff',

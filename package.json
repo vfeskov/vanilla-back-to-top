@@ -1,8 +1,8 @@
 {
   "name": "vanilla-back-to-top",
   "version": "4.1.0",
-  "description": "Configurable zero dependency Back To Top button",
-  "main": "dist/vanilla-back-to-top.umd.min.js",
+  "description": "Tiny and configurable Back To Top button with no dependencies",
+  "main": "dist/vanilla-back-to-top.umd.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/vfeskov/vanilla-back-to-top.git"
