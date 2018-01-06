@@ -73,9 +73,7 @@
   ],
   "author": "Vladimir Feskov",
   "license": "MIT",
-  "dependencies": {
-    "svg-path-parser": "^1.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.36",
     "@babel/preset-env": "^7.0.0-beta.36",
