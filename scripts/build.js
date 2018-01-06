@@ -6,6 +6,7 @@ const rimraf = require('rimraf')
 const postcss  = require('postcss')
 const autoprefixer = require('autoprefixer')
 const clean = require('postcss-clean')
+const zlib = require('zlib')
 const { name } = require('../package.json')
 
 const distDir = './dist'
@@ -27,14 +28,14 @@ async function buildGlobal () {
   const backwardsCompatible = await makeBackwardsCompatible(justTheFunction)
   const uglified = UglifyES.minify(backwardsCompatible).code
   fs.writeFileSync(`${distDir}/${name}.min.js`, uglified)
+
+  const gzipped = zlib.gzipSync(uglified)
+  fs.writeFileSync(`${distDir}/${name}.min.js.gz`, gzipped)
 }
 
 async function buildUMD () {
   const backwardsCompatible = await makeBackwardsCompatible(source)
   fs.writeFileSync(`${distDir}/${name}.umd.js`, backwardsCompatible)
-
-  const uglified = UglifyES.minify(backwardsCompatible).code
-  fs.writeFileSync(`${distDir}/${name}.umd.min.js`, uglified)
 }
 
 async function makeBackwardsCompatible (source) {

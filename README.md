@@ -1,6 +1,11 @@
 # Vanilla Back To Top
+[![npm version](https://badge.fury.io/js/vanilla-back-to-top.svg)](https://badge.fury.io/js/vanilla-back-to-top)
+[![License](https://img.shields.io/npm/l/vanilla-back-to-top.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/LICENSE)
+[![Dependency Status](https://img.shields.io/david/vfeskov/vanilla-back-to-top.svg)]()
+[![File Size](	https://img.shields.io/github/size/vfeskov/vanilla-back-to-top/dist/vanilla-back-to-top.min.js.gz.svg)]()
+[![Downloads](https://img.shields.io/npm/dm/vanilla-back-to-top.svg)]()
 
-Tiny and configurable Back To Top button with no dependencies that will work for [basically all users in the world](http://browserl.ist/?q=explorer+%3E%3D10%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D0%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D57%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D12.1%2Coperamobile+%3E%3D12.1%2Cchromeandroid+%3E%3D62%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D4.4%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7)
+Tiny and configurable Back To Top button with no dependencies that will work for [basically all users in the world](http://browserl.ist/?q=explorer+%3E%3D9%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D12%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D11.5%2Coperamobile+%3E%3D12%2Cchromeandroid+%3E%3D4%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D3%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7)
 
 Works great **with** frameworks - [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc, and **without** them, e.g., on pre-rendered static websites like [Jekyll](https://jekyllrb.com), [Hugo](http://gohugo.io/) or [Hexo](https://hexo.io/)
 
@@ -16,19 +21,19 @@ This is the simplest way to use it, works great with classic non modular JavaScr
 
 Add this to your HTML:
 ```html
-<script src="https://unpkg.com/vanilla-back-to-top@5.0.1/dist/vanilla-back-to-top.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@5.0.1/dist/vanilla-back-to-top.min.js.gz"></script>
 <script>addBackToTop()</script>
 ```
 
 If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@5.0.1/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
 ```html
-<script src="/assets/vanilla-back-to-top.min.js"></script>
+<script src="/assets/vanilla-back-to-top.min.js.gz"></script>
 <script>addBackToTop()</script>
 ```
 
 ### Isolated UMD module
 
-This is how you would use it with a modular app, e.g., on [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc
+This is how you would use it with a modular app, e.g., with [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc
 
 Install the package with npm:
 ```bash
@@ -85,7 +90,7 @@ addBackToTop({
 });
 ```
 
-## All options <a id="options">#</a>
+## <a id="options"></a>All options
 
 These are all the options you can possibly provide to `addBackToTop` function:
 ```js
