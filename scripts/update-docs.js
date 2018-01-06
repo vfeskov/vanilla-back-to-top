@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { name, version } = require('../package.json')
 
-['README.md', 'MORE.md'].forEach(doc => {
+'./README.md,./MORE.md'.split(',').forEach(doc => {
   const content = fs.readFileSync(doc).toString()
 
   fs.writeFileSync(
