@@ -57,7 +57,9 @@ You can change the looks of the button using `#back-to-top` selector in your CSS
 }
 ```
 
-## Examples
+## Examples of some options
+
+In addition to styling with CSS, you can call `addBackToTop` function with many [options](#options), these are some examples:
 
 - Change colors: <img src="https://i.pi.gy/GYQNv.png" width="65" />
 ```js
@@ -83,10 +85,11 @@ addBackToTop({
 });
 ```
 
-## All options
+## All options <a id="options">#</a>
 
-`addBackToTop` function can be called with many options:
+These are all the options you can possibly provide to `addBackToTop` function:
 ```js
+// the values are also the default ones, so the call is equivalent to addBackToTop()
 addBackToTop({
   id: 'back-to-top',
   showWhenScrollTopIs: 1,
@@ -101,7 +104,6 @@ addBackToTop({
   scrollContainer: document.documentElement
 })
 ```
-^ All these are also default values.
 
 |Option|Description|
 |-|-|
