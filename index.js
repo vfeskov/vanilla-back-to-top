@@ -17,7 +17,8 @@
       onClickScrollTo = 0, // px
       scrollDuration = 100, // ms
       innerHTML = '<svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>', // https://material.io/icons/#ic_keyboard_arrow_up
-      size = 56, // px
+      diameter = 56, // px
+      size = diameter, // alias for diameter
       cornerOffset = 20, // px
       backgroundColor = '#000',
       textColor = '#fff',
