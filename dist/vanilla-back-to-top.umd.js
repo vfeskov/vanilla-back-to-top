@@ -35,12 +35,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         textColor = _params$textColor === void 0 ? '#fff' : _params$textColor,
         _params$zIndex = params.zIndex,
         zIndex = _params$zIndex === void 0 ? 1 : _params$zIndex;
-    var min = Math.min,
-        round = Math.round;
-    var _document = document,
-        head = _document.head,
-        body = _document.body,
-        documentElement = _document.documentElement;
     appendStyles();
     var upEl = appendElement();
     var hidden = true;
@@ -78,17 +72,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         event.preventDefault();
         scrollUp();
       });
-      body.appendChild(upEl);
+      document.body.appendChild(upEl);
       return upEl;
     }
 
     function appendStyles() {
-      var svgSize = round(0.43 * size);
-      var svgTop = round(0.29 * size);
+      var svgSize = Math.round(0.43 * size);
+      var svgTop = Math.round(0.29 * size);
       var styles = '#' + id + '{background:' + backgroundColor + ';-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;bottom:' + cornerOffset + 'px;-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.26);-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.26);box-shadow:0 2px 5px 0 rgba(0,0,0,.26);cursor:pointer;display:block;height:' + size + 'px;opacity:1;outline:0;position:fixed;right:' + cornerOffset + 'px;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-transition:bottom .2s,opacity .2s;-o-transition:bottom .2s,opacity .2s;-moz-transition:bottom .2s,opacity .2s;transition:bottom .2s,opacity .2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:' + size + 'px;z-index:' + zIndex + '}#' + id + ' svg{display:block;fill:' + textColor + ';height:' + svgSize + 'px;margin:' + svgTop + 'px auto 0;width:' + svgSize + 'px}#' + id + '.hidden{bottom:-' + size + 'px;opacity:0}';
       var styleEl = document.createElement('style');
       styleEl.appendChild(document.createTextNode(styles));
-      head.insertAdjacentElement('afterbegin', styleEl);
+      document.head.insertAdjacentElement('afterbegin', styleEl);
     }
 
     function scrollUp() {
@@ -107,8 +101,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       function step(timestamp) {
         var delta = timestamp - start;
-        var progress = min(delta / scrollDuration, 1);
-        setScrollTop(initScrollTop - round(progress * pxsToScrollBy));
+        var progress = Math.min(delta / scrollDuration, 1);
+        setScrollTop(initScrollTop - Math.round(progress * pxsToScrollBy));
 
         if (progress < 1) {
           requestAnimationFrame(step);
@@ -117,14 +111,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     }
 
     function getScrollTop() {
-      return scrollY || pageYOffset || body.scrollTop || documentElement && documentElement.scrollTop || 0;
+      return document.body.scrollTop || document.documentElement && document.documentElement.scrollTop || 0;
     }
 
     function setScrollTop(value) {
-      body.scrollTop = value;
+      document.body.scrollTop = value;
 
-      if (documentElement) {
-        documentElement.scrollTop = value;
+      if (document.documentElement) {
+        document.documentElement.scrollTop = value;
       }
     }
   } // FUNCTION END

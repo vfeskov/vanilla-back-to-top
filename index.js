@@ -23,8 +23,6 @@
       textColor = '#fff',
       zIndex = 1
     } = params
-    const { min, round } = Math
-    const { head, body, documentElement } = document
 
     appendStyles()
     const upEl = appendElement()
@@ -60,13 +58,13 @@
         event.preventDefault()
         scrollUp()
       })
-      body.appendChild(upEl)
+      document.body.appendChild(upEl)
       return upEl
     }
 
     function appendStyles () {
-      const svgSize = round(0.43 * size)
-      const svgTop = round(0.29 * size)
+      const svgSize = Math.round(0.43 * size)
+      const svgTop = Math.round(0.29 * size)
       const styles = /*css*/`
         #${id} {
           background: ${backgroundColor};
@@ -101,7 +99,7 @@
       `
       const styleEl = document.createElement('style')
       styleEl.appendChild(document.createTextNode(styles))
-      head.insertAdjacentElement('afterbegin', styleEl)
+      document.head.insertAdjacentElement('afterbegin', styleEl)
     }
 
     function scrollUp () {
@@ -117,20 +115,20 @@
 
       function step (timestamp) {
         const delta = timestamp - start
-        const progress = min(delta / scrollDuration, 1)
-        setScrollTop(initScrollTop - round(progress * pxsToScrollBy))
+        const progress = Math.min(delta / scrollDuration, 1)
+        setScrollTop(initScrollTop - Math.round(progress * pxsToScrollBy))
         if (progress < 1) { requestAnimationFrame(step) }
       }
     }
 
     function getScrollTop () {
-      return scrollY || pageYOffset || body.scrollTop || (documentElement && documentElement.scrollTop || 0)
+      return document.body.scrollTop || (document.documentElement && document.documentElement.scrollTop || 0)
     }
 
     function setScrollTop (value) {
-      body.scrollTop = value
-      if (documentElement) {
-        documentElement.scrollTop = value
+      document.body.scrollTop = value
+      if (document.documentElement) {
+        document.documentElement.scrollTop = value
       }
     }
   }
