@@ -21,11 +21,11 @@ This is the simplest way to use it, works great with classic non modular JavaScr
 
 Add this to your HTML:
 ```html
-<script src="https://unpkg.com/vanilla-back-to-top@5.0.3/dist/vanilla-back-to-top.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@5.0.4/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop()</script>
 ```
 
-If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@5.0.3/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
+If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@5.0.4/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
 ```html
 <script src="/assets/vanilla-back-to-top.min.js.gz"></script>
 <script>addBackToTop()</script>
