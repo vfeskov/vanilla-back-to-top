@@ -17,7 +17,7 @@ Just the button: <img src="https://i.pi.gy/PEAo9.gif" width="102px"/>
 
 Add this anywhere in your HTML:
 ```html
-<script src="https://unpkg.com/vanilla-back-to-top@7.0.3/dist/vanilla-back-to-top.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@7.0.4/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop({
   size: 56,
   backgroundColor: 'rgb(255, 82, 82)',
