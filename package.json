@@ -51,7 +51,7 @@
   "scripts": {
     "build": "node scripts/build",
     "precommit": "npm run build && git add ./dist",
-    "postversion": "node scripts/update-readme.js && sh scripts/fixup-readme.sh",
+    "postversion": "node scripts/update-docs.js && sh scripts/fixup-docs.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": [
