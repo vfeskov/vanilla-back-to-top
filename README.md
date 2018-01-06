@@ -15,7 +15,7 @@ Simple and smooth Back To Top button
 
 Add this anywhere in your HTML:
 ```html
-<script src="https://unpkg.com/vanilla-back-to-top@7.0.4/dist/vanilla-back-to-top.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@7.1.0/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop({
   diameter: 56,
   backgroundColor: 'rgb(255, 82, 82)',
@@ -33,11 +33,11 @@ Add this anywhere in your HTML:
 
 ## More ways to use and examples
 
-See [MORE](https://unpkg.com/vanilla-back-to-top@7.0.4/MORE.md)
+See [MORE](https://unpkg.com/vanilla-back-to-top@7.1.0/MORE.md)
 
 ## License
 
-MIT, see [LICENSE](https://unpkg.com/vanilla-back-to-top@7.0.4/MORE.md)
+MIT, see [LICENSE](https://unpkg.com/vanilla-back-to-top@7.1.0/MORE.md)
 
 
 ----------
