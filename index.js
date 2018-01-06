@@ -12,7 +12,6 @@
   function addBackToTop (params = {}) {
     const {
       id = 'back-to-top',
-      scrollContainer = document.documentElement,
       showWhenScrollTopIs = 1, // px
       onClickScrollTo = 0, // px
       scrollDuration = 100, // ms
@@ -28,11 +27,11 @@
     const upEl = appendElement()
     let hidden = true
 
-    scrollEventTarget().addEventListener('scroll', adapt)
+    window.addEventListener('scroll', adapt)
     adapt()
 
     function adapt () {
-      scrollContainer.scrollTop >= showWhenScrollTopIs ?
+      getScrollTop() >= showWhenScrollTopIs ?
         show() :
         hide()
     }
@@ -49,56 +48,52 @@
       hidden = true
     }
 
-    function scrollEventTarget () {
-      return scrollContainer === document.documentElement ? window : scrollContainer
-    }
-
     function appendElement () {
       const upEl = document.createElement('div')
       upEl.id = id
       upEl.className = 'hidden'
-      const upLinkEl = document.createElement('a')
-      upLinkEl.addEventListener('click', event => {
+      upEl.appendChild(innerElement)
+      upEl.addEventListener('click', event => {
         event.preventDefault()
         scrollUp()
       })
-      upLinkEl.appendChild(innerElement)
-      upEl.appendChild(upLinkEl)
       document.body.appendChild(upEl)
       return upEl
     }
 
     function appendStyles () {
-      const fontSize = Math.round(0.64 * size)
-      const lineHeight = Math.round(1.28 * size)
+      const fontSize = Math.round(0.43 * size)
+      const lineHeight = Math.round(1.21 * size)
       const styles = /*css*/`
         #${id} {
+          background: ${backgroundColor};
+          border-radius: ${size}px;
           bottom: ${cornerOffset}px;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+          color: ${textColor};
+          cursor: pointer;
+          display: block;
+          font-family: "Courier New", Courier, monospace;
+          font-size: ${fontSize}px;
+          height: ${size}px;
+          line-height: ${lineHeight}px;
           opacity: 1;
+          outline: none;
           position: fixed;
           right: ${cornerOffset}px;
+          -webkit-tap-highlight-color: transparent;
+          text-align: center;
+          text-decoration: none;
+          -webkit-touch-callout: none;
           transition: bottom 0.2s, opacity 0.2s;
+          user-select: none;
+          vertical-align: middle;
+          width: ${size}px;
           z-index: ${zIndex};
         }
         #${id}.hidden {
           bottom: -${size}px;
           opacity: 0;
-        }
-        #${id} a {
-          background: ${backgroundColor};
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
-          border-radius: ${size}px;
-          color: ${textColor};
-          cursor: pointer;
-          display: block;
-          font-family: monospace;
-          font-size: ${fontSize}px;
-          height: ${size}px;
-          line-height: ${lineHeight}px;
-          text-align: center;
-          text-decoration: none;
-          vertical-align: middle;
-          width: ${size}px;
         }
       `
       const styleEl = document.createElement('style')
@@ -108,10 +103,10 @@
 
     function scrollUp () {
       if (scrollDuration <= 0 || typeof performance === 'undefined' || typeof requestAnimationFrame === 'undefined') {
-        scrollContainer.scrollTop = onClickScrollTo
+        return setScrollTop(onClickScrollTo)
       }
       const start = performance.now()
-      const initScrollTop = scrollContainer.scrollTop
+      const initScrollTop = getScrollTop()
       const pxsToScrollBy = initScrollTop - onClickScrollTo
 
       requestAnimationFrame(step)
@@ -119,9 +114,17 @@
       function step (timestamp) {
         const delta = timestamp - start
         const progress = Math.min(delta / scrollDuration, 1)
-        scrollContainer.scrollTop = initScrollTop - Math.round(progress * pxsToScrollBy)
+        setScrollTop(initScrollTop - Math.round(progress * pxsToScrollBy))
         if (progress < 1) { requestAnimationFrame(step) }
       }
+    }
+
+    function getScrollTop () {
+      return window.scrollY || window.pageYOffset || document.body.scrollTop || (document.documentElement && document.documentElement.scrollTop || 0)
+    }
+
+    function setScrollTop (value) {
+      document.body.scrollTop = document.documentElement.scrollTop = value
     }
   }
   // FUNCTION END

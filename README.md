@@ -27,7 +27,7 @@ Add this to your HTML:
 
 If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@5.0.4/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
 ```html
-<script src="/assets/vanilla-back-to-top.min.js.gz"></script>
+<script src="/assets/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop()</script>
 ```
 
@@ -50,7 +50,7 @@ addBackToTop()
 
 You can change the looks of the button using `#back-to-top` selector in your CSS:
 ```css
-#back-to-top a {
+#back-to-top {
   text-indent: -9999px;
   background-image: url(back-to-top.png)
 }
@@ -97,16 +97,15 @@ These are all the options you can possibly provide to `addBackToTop` function:
 // the values are also the default ones, so the call is equivalent to addBackToTop()
 addBackToTop({
   id: 'back-to-top',
-  showWhenScrollTopIs: 1,
-  onClickScrollTo: 0,
-  scrollDuration: 100,
+  showWhenScrollTopIs: 1, // px
+  onClickScrollTo: 0, // px
+  scrollDuration: 100, // ms
   innerElement: document.createTextNode('^'),
-  size: 56,
-  cornerOffset: 20,
+  size: 56, // px
+  cornerOffset: 20, // px
   backgroundColor: '#000',
   textColor: '#fff',
-  zIndex: 1,
-  scrollContainer: document.documentElement
+  zIndex: 1
 })
 ```
 
@@ -122,6 +121,5 @@ addBackToTop({
 |`backgroundColor`|Background color of the button|
 |`textColor`|Text color of the button|
 |`zIndex`|z-index of the button|
-|`scrollContainer`|If only part of your website gets scrolled, e.g., when your sidebar never scrolls with content, put the scrolled DOM element here|
 
 ### [&#9733; Star me on GitHub](https://github.com/vfeskov/vanilla-back-to-top)
