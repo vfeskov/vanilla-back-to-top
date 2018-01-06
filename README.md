@@ -9,9 +9,13 @@ Tiny but highly configurable Back To Top button with no dependencies that will w
 
 Works universally great **with** frameworks - [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc, and **without** them, e.g., on pre-rendered static websites like [Jekyll](https://jekyllrb.com), [Hugo](http://gohugo.io/) or [Hexo](https://hexo.io/)
 
+Scrolls smoothly using [requestAnimationFrame](https://github.com/vfeskov/vanilla-back-to-top/blob/master/index.js#L105)
+
 <img src="https://i.pi.gy/ee5b5.gif" width="320px"/>
 
 Just the button: <img src="https://i.pi.gy/PEAo9.gif" width="102px"/>
+
+[Live demo](https://vfeskov.com/)
 
 ## How to use
 
