@@ -5,13 +5,13 @@
 [![File Size](	https://img.shields.io/github/size/vfeskov/vanilla-back-to-top/dist/vanilla-back-to-top.min.js.gz.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/dist/vanilla-back-to-top.min.js.gz)
 [![Downloads](https://img.shields.io/npm/dm/vanilla-back-to-top.svg)](https://www.npmjs.com/package/vanilla-back-to-top)
 
-Tiny and configurable Back To Top button with no dependencies that will work for [basically all users in the world](http://browserl.ist/?q=explorer+%3E%3D9%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D12%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D11.5%2Coperamobile+%3E%3D12%2Cchromeandroid+%3E%3D4%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D3%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7)
+Tiny but highly configurable Back To Top button with no dependencies that will work for [basically all users in the world](http://browserl.ist/?q=explorer+%3E%3D9%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D12%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D11.5%2Coperamobile+%3E%3D12%2Cchromeandroid+%3E%3D4%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D3%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7)
 
 Works universally great **with** frameworks - [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue](https://vuejs.org/) etc, and **without** them, e.g., on pre-rendered static websites like [Jekyll](https://jekyllrb.com), [Hugo](http://gohugo.io/) or [Hexo](https://hexo.io/)
 
-<img src="https://i.pi.gy/Vab3n.gif" width="300px"/>
+<img src="https://i.pi.gy/ee5b5.gif" width="320px"/>
 
-Just the button: <img src="https://i.pi.gy/xkg2d.gif" width="98px"/>
+Just the button: <img src="https://i.pi.gy/PEAo9.gif" width="102px"/>
 
 ## How to use
 
@@ -65,7 +65,7 @@ You can change the looks of the button using `#back-to-top` selector in your CSS
 
 In addition to styling with CSS, you can call `addBackToTop` function with many [options](#options), these are some examples:
 
-- Change colors: <img src="https://i.pi.gy/GYQNv.png" width="65" />
+- Change colors: <img src="https://i.pi.gy/j3GO0.png" width="68" />
 ```js
 addBackToTop({
   backgroundColor: 'pink',
@@ -73,7 +73,7 @@ addBackToTop({
 })
 ```
 
-- Change size: <img src="https://i.pi.gy/drmp0.png" width="48" />
+- Change size: <img src="https://i.pi.gy/30OGz.png" width="50" />
 ```js
 addBackToTop({
   size: 40
