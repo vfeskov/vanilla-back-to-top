@@ -81,10 +81,10 @@ addBackToTop({
 })
 ```
 
-- Use [SVG icon](https://material.io/icons/#ic_keyboard_arrow_up) instead of `^` character: <img src="https://i.pi.gy/O1Ggw.png" width="66" />
+- Use [SVG icon](https://material.io/icons/#ic_arrow_upward) instead of `^` character: <img src="https://i.pi.gy/YnL8p.png" width="65" />
 ```js
 var backToTopSvg = document.createElement('span');
-backToTopSvg.innerHTML = '<svg height="100%" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="white"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>';
+backToTopSvg.innerHTML = '<svg height="100%" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z"/><path fill="#fff" d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>';
 addBackToTop({
   innerElement: backToTopSvg
 });
