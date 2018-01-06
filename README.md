@@ -33,11 +33,11 @@ Add this anywhere in your HTML:
 
 ## More ways to use and examples
 
-See [MORE](https://unpkg.com/vanilla-back-to-top@7.1.0/MORE.md)
+See [MORE](https://github.com/vfeskov/vanilla-back-to-top/blob/master/MORE.md)
 
 ## License
 
-MIT, see [LICENSE](https://unpkg.com/vanilla-back-to-top@7.1.0/MORE.md)
+MIT, see [LICENSE](https://github.com/vfeskov/vanilla-back-to-top/blob/master/LICENSE)
 
 
 ----------
