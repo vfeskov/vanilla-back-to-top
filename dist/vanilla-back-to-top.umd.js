@@ -11,6 +11,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 })(typeof self !== 'undefined' ? self : this, function (exports) {
   exports.addBackToTop = addBackToTop; // FUNCTION START
 
+  'use strict';
+
   function addBackToTop() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var _params$id = params.id,
@@ -21,8 +23,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         onClickScrollTo = _params$onClickScroll === void 0 ? 0 : _params$onClickScroll,
         _params$scrollDuratio = params.scrollDuration,
         scrollDuration = _params$scrollDuratio === void 0 ? 100 : _params$scrollDuratio,
-        _params$innerElement = params.innerElement,
-        innerElement = _params$innerElement === void 0 ? document.createTextNode('^') : _params$innerElement,
+        _params$innerHTML = params.innerHTML,
+        innerHTML = _params$innerHTML === void 0 ? '<svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>' : _params$innerHTML,
         _params$size = params.size,
         size = _params$size === void 0 ? 56 : _params$size,
         _params$cornerOffset = params.cornerOffset,
@@ -33,6 +35,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         textColor = _params$textColor === void 0 ? '#fff' : _params$textColor,
         _params$zIndex = params.zIndex,
         zIndex = _params$zIndex === void 0 ? 1 : _params$zIndex;
+    var min = Math.min,
+        round = Math.round;
+    var _document = document,
+        head = _document.head,
+        body = _document.body,
+        documentElement = _document.documentElement;
     appendStyles();
     var upEl = appendElement();
     var hidden = true;
@@ -65,25 +73,29 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       var upEl = document.createElement('div');
       upEl.id = id;
       upEl.className = 'hidden';
-      upEl.appendChild(innerElement);
+      upEl.innerHTML = innerHTML;
       upEl.addEventListener('click', function (event) {
         event.preventDefault();
         scrollUp();
       });
-      document.body.appendChild(upEl);
+      body.appendChild(upEl);
       return upEl;
     }
 
     function appendStyles() {
-      var fontSize = Math.round(0.43 * size);
-      var lineHeight = Math.round(1.21 * size);
-      var styles = "#".concat(id, "{background:").concat(backgroundColor, ";-webkit-border-radius:").concat(size, "px;-moz-border-radius:").concat(size, "px;border-radius:").concat(size, "px;bottom:").concat(cornerOffset, "px;-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.26);-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.26);box-shadow:0 2px 5px 0 rgba(0,0,0,.26);color:").concat(textColor, ";cursor:pointer;display:block;font-family:\"Courier New\",Courier,monospace;font-size:").concat(fontSize, "px;height:").concat(size, "px;line-height:").concat(lineHeight, "px;opacity:1;outline:0;position:fixed;right:").concat(cornerOffset, "px;-webkit-tap-highlight-color:transparent;text-align:center;text-decoration:none;-webkit-touch-callout:none;-webkit-transition:bottom .2s,opacity .2s;-o-transition:bottom .2s,opacity .2s;-moz-transition:bottom .2s,opacity .2s;transition:bottom .2s,opacity .2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;vertical-align:middle;width:").concat(size, "px;z-index:").concat(zIndex, "}#").concat(id, ".hidden{bottom:-").concat(size, "px;opacity:0}");
+      var svgSize = round(0.43 * size);
+      var svgTop = round(0.29 * size);
+      var styles = '#' + id + '{background:' + backgroundColor + ';-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;bottom:' + cornerOffset + 'px;-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.26);-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.26);box-shadow:0 2px 5px 0 rgba(0,0,0,.26);cursor:pointer;display:block;height:' + size + 'px;opacity:1;outline:0;position:fixed;right:' + cornerOffset + 'px;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-transition:bottom .2s,opacity .2s;-o-transition:bottom .2s,opacity .2s;-moz-transition:bottom .2s,opacity .2s;transition:bottom .2s,opacity .2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:' + size + 'px;z-index:' + zIndex + '}#' + id + ' svg{display:block;fill:' + textColor + ';height:' + svgSize + 'px;margin:' + svgTop + 'px auto 0;width:' + svgSize + 'px}#' + id + '.hidden{bottom:-' + size + 'px;opacity:0}';
       var styleEl = document.createElement('style');
       styleEl.appendChild(document.createTextNode(styles));
-      document.head.insertAdjacentElement('afterbegin', styleEl);
+      head.insertAdjacentElement('afterbegin', styleEl);
     }
 
     function scrollUp() {
+      var _window = window,
+          performance = _window.performance,
+          requestAnimationFrame = _window.requestAnimationFrame;
+
       if (scrollDuration <= 0 || typeof performance === 'undefined' || typeof requestAnimationFrame === 'undefined') {
         return setScrollTop(onClickScrollTo);
       }
@@ -95,8 +107,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
       function step(timestamp) {
         var delta = timestamp - start;
-        var progress = Math.min(delta / scrollDuration, 1);
-        setScrollTop(initScrollTop - Math.round(progress * pxsToScrollBy));
+        var progress = min(delta / scrollDuration, 1);
+        setScrollTop(initScrollTop - round(progress * pxsToScrollBy));
 
         if (progress < 1) {
           requestAnimationFrame(step);
@@ -105,11 +117,15 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     }
 
     function getScrollTop() {
-      return window.scrollY || window.pageYOffset || document.body.scrollTop || document.documentElement && document.documentElement.scrollTop || 0;
+      return scrollY || pageYOffset || body.scrollTop || documentElement && documentElement.scrollTop || 0;
     }
 
     function setScrollTop(value) {
-      document.body.scrollTop = document.documentElement.scrollTop = value;
+      body.scrollTop = value;
+
+      if (documentElement) {
+        documentElement.scrollTop = value;
+      }
     }
   } // FUNCTION END
 

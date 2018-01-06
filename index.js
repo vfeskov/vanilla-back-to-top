@@ -9,19 +9,22 @@
 }(typeof self !== 'undefined' ? self : this, function (exports) {
   exports.addBackToTop = addBackToTop
   // FUNCTION START
+  'use strict'
   function addBackToTop (params = {}) {
     const {
       id = 'back-to-top',
       showWhenScrollTopIs = 1, // px
       onClickScrollTo = 0, // px
       scrollDuration = 100, // ms
-      innerElement = document.createTextNode('^'),
+      innerHTML = '<svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>', // https://material.io/icons/#ic_keyboard_arrow_up
       size = 56, // px
       cornerOffset = 20, // px
       backgroundColor = '#000',
       textColor = '#fff',
       zIndex = 1
     } = params
+    const { min, round } = Math
+    const { head, body, documentElement } = document
 
     appendStyles()
     const upEl = appendElement()
@@ -52,44 +55,44 @@
       const upEl = document.createElement('div')
       upEl.id = id
       upEl.className = 'hidden'
-      upEl.appendChild(innerElement)
+      upEl.innerHTML = innerHTML
       upEl.addEventListener('click', event => {
         event.preventDefault()
         scrollUp()
       })
-      document.body.appendChild(upEl)
+      body.appendChild(upEl)
       return upEl
     }
 
     function appendStyles () {
-      const fontSize = Math.round(0.43 * size)
-      const lineHeight = Math.round(1.21 * size)
+      const svgSize = round(0.43 * size)
+      const svgTop = round(0.29 * size)
       const styles = /*css*/`
         #${id} {
           background: ${backgroundColor};
-          border-radius: ${size}px;
+          border-radius: 50%;
           bottom: ${cornerOffset}px;
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
-          color: ${textColor};
           cursor: pointer;
           display: block;
-          font-family: "Courier New", Courier, monospace;
-          font-size: ${fontSize}px;
           height: ${size}px;
-          line-height: ${lineHeight}px;
           opacity: 1;
           outline: none;
           position: fixed;
           right: ${cornerOffset}px;
           -webkit-tap-highlight-color: transparent;
-          text-align: center;
-          text-decoration: none;
           -webkit-touch-callout: none;
           transition: bottom 0.2s, opacity 0.2s;
           user-select: none;
-          vertical-align: middle;
           width: ${size}px;
           z-index: ${zIndex};
+        }
+        #${id} svg {
+          display: block;
+          fill: ${textColor};
+          height: ${svgSize}px;
+          margin: ${svgTop}px auto 0;
+          width: ${svgSize}px;
         }
         #${id}.hidden {
           bottom: -${size}px;
@@ -98,10 +101,11 @@
       `
       const styleEl = document.createElement('style')
       styleEl.appendChild(document.createTextNode(styles))
-      document.head.insertAdjacentElement('afterbegin', styleEl)
+      head.insertAdjacentElement('afterbegin', styleEl)
     }
 
     function scrollUp () {
+      const { performance, requestAnimationFrame } = window
       if (scrollDuration <= 0 || typeof performance === 'undefined' || typeof requestAnimationFrame === 'undefined') {
         return setScrollTop(onClickScrollTo)
       }
@@ -113,18 +117,21 @@
 
       function step (timestamp) {
         const delta = timestamp - start
-        const progress = Math.min(delta / scrollDuration, 1)
-        setScrollTop(initScrollTop - Math.round(progress * pxsToScrollBy))
+        const progress = min(delta / scrollDuration, 1)
+        setScrollTop(initScrollTop - round(progress * pxsToScrollBy))
         if (progress < 1) { requestAnimationFrame(step) }
       }
     }
 
     function getScrollTop () {
-      return window.scrollY || window.pageYOffset || document.body.scrollTop || (document.documentElement && document.documentElement.scrollTop || 0)
+      return scrollY || pageYOffset || body.scrollTop || (documentElement && documentElement.scrollTop || 0)
     }
 
     function setScrollTop (value) {
-      document.body.scrollTop = document.documentElement.scrollTop = value
+      body.scrollTop = value
+      if (documentElement) {
+        documentElement.scrollTop = value
+      }
     }
   }
   // FUNCTION END

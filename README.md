@@ -51,7 +51,6 @@ addBackToTop()
 You can change the looks of the button using `#back-to-top` selector in your CSS:
 ```css
 #back-to-top {
-  text-indent: -9999px;
   background-image: url(back-to-top.png)
 }
 @media screen and (max-width: 479px) {
@@ -81,12 +80,10 @@ addBackToTop({
 })
 ```
 
-- Use [SVG icon](https://material.io/icons/#ic_arrow_upward) instead of `^` character: <img src="https://i.pi.gy/YnL8p.png" width="65" />
+- Use [another SVG icon](https://material.io/icons/#ic_arrow_upward): <img src="https://i.pi.gy/YnL8p.png" width="65" />
 ```js
-var backToTopSvg = document.createElement('span');
-backToTopSvg.innerHTML = '<svg height="100%" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z"/><path fill="#fff" d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>';
 addBackToTop({
-  innerElement: backToTopSvg
+  innerHTML: '<svg viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z"/><path fill="#fff" d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>'
 });
 ```
 
@@ -100,7 +97,7 @@ addBackToTop({
   showWhenScrollTopIs: 1, // px
   onClickScrollTo: 0, // px
   scrollDuration: 100, // ms
-  innerElement: document.createTextNode('^'),
+  innerHTML = '<svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>', // https://material.io/icons/#ic_keyboard_arrow_up
   size: 56, // px
   cornerOffset: 20, // px
   backgroundColor: '#000',
@@ -115,7 +112,7 @@ addBackToTop({
 |`showWhenScrollTopIs`|Show the button when page got scrolled by this number of pixels|
 |`onClickScrollTo`|Where to scroll to, in pixels, when the button gets clicked, `0` means the very top|
 |`scrollDuration`|How long, in milliseconds, scrolling to top should take. Set to `0` to make scrolling instant|
-|`innerElement`|DOM element to put inside the button; with jQuery you can put something like this: `$('<svg>...</svg>').get(0)`|
+|`innerHTML`|HTML code to put inside the button|
 |`size`|Width and height of the button in pixels|
 |`cornerOffset`|Right and bottom offset of the button relative to viewport|
 |`backgroundColor`|Background color of the button|

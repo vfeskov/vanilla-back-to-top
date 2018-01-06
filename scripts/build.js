@@ -66,7 +66,10 @@ async function processCss (text) {
       .process(varsEscaped, { from: '.' })
       .then(r => r.css)
     const varsRestored = processed.replace(/\$\\\{([^\}]+)\\\}/g, '${$1}')
-    result = result.replace(tmpl, `\`${varsRestored}\``)
+    const templateLiteralRemoved = varsRestored
+      .replace(/\$\{([^\}]+)\}/g, '\' + $1 + \'')
+      .replace(/`/g, '')
+    result = result.replace(tmpl, `'${templateLiteralRemoved}'`)
   }))
 
   return result
