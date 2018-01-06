@@ -21,7 +21,7 @@ This is the simplest way to use it, works great with classic non modular JavaScr
 
 Add this to your HTML:
 ```html
-<script src="https://unpkg.com/vanilla-back-to-top@5.0.2/dist/vanilla-back-to-top.min.js.gz"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@5.0.2/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop()</script>
 ```
 
