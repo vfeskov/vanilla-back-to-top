@@ -13,7 +13,7 @@ Simple and smooth Back To Top button
 
 ## How to use
 
-Add this anywhere in your HTML:
+Add this to `<body>` of your HTML:
 ```html
 <script src="https://unpkg.com/vanilla-back-to-top@7.1.1/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop({
