@@ -11,6 +11,14 @@ Simple and smooth Back To Top button
 
 [Live demo](https://vfeskov.com/)
 
+## Features
+
+- Hides when on top
+- Scrolls up smoothly when clicked
+- Up-to-date Material-like UX
+- Compatible with [really old browsers](http://browserl.ist/?q=explorer+%3E%3D9%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D12%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D11.5%2Coperamobile+%3E%3D12%2Cchromeandroid+%3E%3D4%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D3%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7)
+- No dependencies or requirements
+
 ## How to use
 
 Add this to `<body>` of your HTML:
@@ -22,14 +30,6 @@ Add this to `<body>` of your HTML:
   textColor: '#fff'
 })</script>
 ```
-
-## Features
-
-- Hides when on top
-- Scrolls up smoothly when clicked
-- Up-to-date Material-like UX
-- Compatible with [really old browsers](http://browserl.ist/?q=explorer+%3E%3D9%2Cexplorermobile+%3E%3D10%2Cedge+%3E%3D12%2Cfirefox+%3E%3D2%2Cfirefoxandroid+%3E%3D2%2Cchrome+%3E%3D4%2Csafari+%3E%3D5.1%2Copera+%3E%3D11.5%2Coperamobile+%3E%3D12%2Cchromeandroid+%3E%3D4%2Cios+%3E%3D7.1%2Cucandroid+%3E%3D11.4%2Candroid+%3E%3D3%2Csamsung+%3E%3D4%2Cblackberry+%3E%3D7)
-- No dependencies or requirements
 
 ## More ways to use and examples
 
