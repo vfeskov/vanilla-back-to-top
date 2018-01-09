@@ -25,7 +25,7 @@ Simple and smooth Back To Top button
 
 Add this to `<body>` of your HTML:
 ```html
-<script src="https://unpkg.com/vanilla-back-to-top@7.1.5/dist/vanilla-back-to-top.min.js"></script>
+<script src="https://unpkg.com/vanilla-back-to-top@7.1.6/dist/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop({
   diameter: 56,
   backgroundColor: 'rgb(255, 82, 82)',
