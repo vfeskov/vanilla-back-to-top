@@ -1,11 +1,12 @@
+
 # Vanilla Back To Top
-[![npm version](https://badge.fury.io/js/vanilla-back-to-top.svg)](https://badge.fury.io/js/vanilla-back-to-top)
-[![License](https://img.shields.io/npm/l/vanilla-back-to-top.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/LICENSE)
-[![Dependency Status](https://img.shields.io/david/vfeskov/vanilla-back-to-top.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/package.json)
 [![File Size](	https://img.shields.io/github/size/vfeskov/vanilla-back-to-top/dist/vanilla-back-to-top.min.js.gz.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/dist/vanilla-back-to-top.min.js.gz)
 [![Downloads](https://img.shields.io/npm/dm/vanilla-back-to-top.svg)](https://www.npmjs.com/package/vanilla-back-to-top)
 
 Simple and smooth Back To Top button
+[![Dependency Status](https://img.shields.io/david/vfeskov/vanilla-back-to-top.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/package.json)
+[<img src="https://i.pi.gy/O1Gbz.png" width="67" /><img src="https://i.pi.gy/8Z0Nj.png" width="54"><img src="https://i.pi.gy/0P8Nr.png" width="120"><img src="https://i.pi.gy/Vabg0.png" width="72">](https://github.com/vfeskov/vanilla-back-to-top/blob/master/EXAMPLES.md)<br/>
+<small>See [EXAMPLES](https://github.com/vfeskov/vanilla-back-to-top/blob/master/EXAMPLES.md) for code</small>
 
 <img src="https://i.pi.gy/ee5b5.gif" width="320px"/>
 
@@ -30,10 +31,7 @@ Add this to `<body>` of your HTML:
   textColor: '#fff'
 })</script>
 ```
-
-## More ways to use and examples
-
-See [MORE](https://github.com/vfeskov/vanilla-back-to-top/blob/master/MORE.md)
+See [INSTALL](https://github.com/vfeskov/vanilla-back-to-top/blob/master/INSTALL.md) for more
 
 ## License
 
