@@ -1,6 +1,6 @@
 # Install
 
-If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@7.1.4/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
+If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the file](https://unpkg.com/vanilla-back-to-top@7.1.5/dist/vanilla-back-to-top.min.js) to your project and serve it from your server:
 ```html
 <script src="/assets/vanilla-back-to-top.min.js"></script>
 <script>addBackToTop()</script>
