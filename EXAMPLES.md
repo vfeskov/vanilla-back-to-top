@@ -1,5 +1,14 @@
 # Examples
 
+<img src="https://i.pi.gy/leWN4.png" width="72"/> (default)<br/>
+```html
+<script>addBackToTop()</script>
+```
+
+
+----------
+
+
 <img src="https://i.pi.gy/O1Gbz.png" width="67" /><br/>
 ```html
 <script>addBackToTop({
