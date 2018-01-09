@@ -32,7 +32,7 @@ Add this to `<body>` of your HTML:
   textColor: '#fff'
 })</script>
 ```
-See [INSTALL](https://github.com/vfeskov/vanilla-back-to-top/blob/master/INSTALL.md) for more
+See [INSTALL](https://github.com/vfeskov/vanilla-back-to-top/blob/master/INSTALL.md) for alternatives
 
 ## License
 
@@ -42,4 +42,4 @@ MIT, see [LICENSE](https://github.com/vfeskov/vanilla-back-to-top/blob/master/LI
 ----------
 
 
-[&#9733; Star me on GitHub](https://github.com/vfeskov/vanilla-back-to-top)
+[Support me with a star ♥](https://github.com/vfeskov/vanilla-back-to-top)
