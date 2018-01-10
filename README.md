@@ -1,6 +1,6 @@
 
 # Vanilla Back To Top
-[![Dependency Status](https://img.shields.io/david/vfeskov/vanilla-back-to-top.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/package.json)
+[![No Dependencies](http://svgshare.com/i/4rU.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/package.json)
 [![File Size](	https://img.shields.io/github/size/vfeskov/vanilla-back-to-top/dist/vanilla-back-to-top.min.js.gz.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/master/dist/vanilla-back-to-top.min.js.gz)
 [![Downloads](https://img.shields.io/npm/dm/vanilla-back-to-top.svg)](https://www.npmjs.com/package/vanilla-back-to-top)
 
