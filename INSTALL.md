@@ -6,7 +6,7 @@ If you don't want to rely on [unpkg.com](https://unpkg.com/#/about), save [the f
 <script>addBackToTop()</script>
 ```
 
-You can also install the package via npm and import it into your bundle:
+<a id="#import"></a>You can also install the package via npm and import it into your bundle:
 ```bash
 npm install --save vanilla-back-to-top
 ```

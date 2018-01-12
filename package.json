@@ -1,7 +1,7 @@
 {
   "name": "vanilla-back-to-top",
   "version": "7.1.7",
-  "description": "Tiny and configurable Back To Top button with no dependencies",
+  "description": "Simple and smooth Back To Top button with no dependencies",
   "main": "dist/vanilla-back-to-top.umd.js",
   "repository": {
     "type": "git",
@@ -49,9 +49,9 @@
     "hubpress"
   ],
   "scripts": {
-    "build": "node scripts/build",
+    "build": "node npm-scripts/build",
     "precommit": "npm run build && git add ./dist",
-    "postversion": "node scripts/update-docs.js && sh scripts/fixup-docs.sh",
+    "postversion": "node npm-scripts/update-docs.js && sh npm-scripts/fixup-docs.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": [
