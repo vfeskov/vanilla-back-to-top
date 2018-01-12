@@ -2,7 +2,7 @@
 # Vanilla Back To Top
 
 [![No Dependencies](http://svgshare.com/i/4rU.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/v7.1.11/package.json)
-[![File Size](https://github.com/vfeskov/vanilla-back-to-top/blob/v7.1.11/size-shield.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/v7.1.11/dist/vanilla-back-to-top.min.js.gz)
+[![File Size](https://unpkg.com/vanilla-back-to-top@7.1.11/size-shield.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/v7.1.11/dist/vanilla-back-to-top.min.js.gz)
 [![Downloads](https://img.shields.io/npm/dm/vanilla-back-to-top.svg)](https://www.npmjs.com/package/vanilla-back-to-top)
 
 Simple and smooth Back To Top button
