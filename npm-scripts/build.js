@@ -31,6 +31,7 @@ async function buildGlobal () {
 
   const gzipped = zlib.gzipSync(uglified)
   fs.writeFileSync(`${distDir}/${name}.min.js.gz`, gzipped)
+  makeSizeShield(gzipped.length)
 }
 
 async function buildUMD () {
@@ -81,4 +82,10 @@ function success () {
 
 function error (error) {
   console.log('Build failed', error)
+}
+
+function makeSizeShield (size) {
+  const kbs = (size / 1024).toFixed(2)
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="20"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="76" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path fill="#555" d="M0 0h31v20H0z"/><path fill="#97CA00" d="M31 0h45v20H31z"/><path fill="url(#b)" d="M0 0h76v20H0z"/></g><g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110"><text x="165" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="210">size</text><text x="165" y="140" transform="scale(.1)" textLength="210">size</text><text x="525" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="350">${kbs} kB</text><text x="525" y="140" transform="scale(.1)" textLength="350">${kbs} kB</text></g></svg>`
+  fs.writeFileSync('size-shield.svg', svg)
 }
