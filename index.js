@@ -72,6 +72,7 @@
           border-radius: 50%;
           bottom: ${cornerOffset}px;
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+          color: ${textColor};
           cursor: pointer;
           display: block;
           height: ${size}px;
@@ -88,7 +89,7 @@
         }
         #${id} svg {
           display: block;
-          fill: ${textColor};
+          fill: currentColor;
           height: ${svgSize}px;
           margin: ${svgTop}px auto 0;
           width: ${svgSize}px;
