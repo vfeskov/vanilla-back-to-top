@@ -1,6 +1,6 @@
 {
   "name": "vanilla-back-to-top",
-  "version": "7.1.11",
+  "version": "7.1.12",
   "description": "Simple and smooth Back To Top button with no dependencies",
   "main": "dist/vanilla-back-to-top.umd.js",
   "repository": {
