@@ -1,9 +1,8 @@
-
 # Vanilla Back To Top
 
 [![No Dependencies](http://svgshare.com/i/4rU.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/v7.1.13/package.json)
 [![File Size](https://unpkg.com/vanilla-back-to-top@7.1.13/size-shield.svg)](https://github.com/vfeskov/vanilla-back-to-top/blob/v7.1.13/dist/vanilla-back-to-top.min.js.gz)
-[![Downloads](https://img.shields.io/npm/dm/vanilla-back-to-top.svg)](https://www.npmjs.com/package/vanilla-back-to-top)
+[![GitHub stars](https://img.shields.io/github/stars/vfeskov/vanilla-back-to-top.svg?style=social&label=Stars)](https://github.com/vfeskov/vanilla-back-to-top)
 
 Simple and tiny Back To Top button with no dependencies. Hides when on top, scrolls up smoothly when clicked. Works equally great with [Vue](https://vuejs.org/), [React](https://reactjs.org/), [Angular](https://angular.io/) and without frameworks on [Jekyll](https://jekyllrb.com/), [Hugo](https://gohugo.io/) and [Hexo](https://hexo.io)
 
