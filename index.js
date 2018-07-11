@@ -12,7 +12,7 @@
   'use strict'
   function addBackToTop (params = {}) {
     const {
-      id = 'back-to-top',
+      id = 'back-to-top-' + Date.now(),
       showWhenScrollTopIs = 1, // px
       onClickScrollTo = 0, // px
       scrollDuration = 100, // ms
@@ -25,11 +25,26 @@
       zIndex = 1
     } = params
 
+    let targetElem = params.targetElem || 'body';
+    const targetElemType = typeof targetElem;
+ 
+    if (!['string', 'object'].includes(targetElemType)) {
+        throw 'targetElem has to be a selector string or a DOMElement itself';
+    }
+
+    if (targetElemType == 'string')   {
+        targetElem = document.querySelector(targetElem);
+    }
+
+    if (!targetElem) {
+        throw 'targetElem is invalid. (Bad id string or null element)';
+    }
+
     appendStyles()
     const upEl = appendElement()
     let hidden = true
 
-    window.addEventListener('scroll', adapt)
+    targetElem.addEventListener('scroll', adapt)
     adapt()
 
     function adapt () {
@@ -59,7 +74,7 @@
         event.preventDefault()
         scrollUp()
       })
-      document.body.appendChild(upEl)
+      targetElem.appendChild(upEl)
       return upEl
     }
 
@@ -124,12 +139,12 @@
     }
 
     function getScrollTop () {
-      return document.body.scrollTop || (document.documentElement && document.documentElement.scrollTop || 0)
+      return targetElem != document.body ? targetElem.scrollTop : document.body.scrollTop || (document.documentElement && document.documentElement.scrollTop || 0);
     }
 
     function setScrollTop (value) {
-      document.body.scrollTop = value
-      if (document.documentElement) {
+      targetElem.scrollTop = value
+      if (targetElem != document.body && document.documentElement) {
         document.documentElement.scrollTop = value
       }
     }

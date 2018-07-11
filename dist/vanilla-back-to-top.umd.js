@@ -16,7 +16,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   function addBackToTop() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var _params$id = params.id,
-        id = _params$id === void 0 ? 'back-to-top' : _params$id,
+        id = _params$id === void 0 ? 'back-to-top-' + Date.now() : _params$id,
         _params$showWhenScrol = params.showWhenScrollTopIs,
         showWhenScrollTopIs = _params$showWhenScrol === void 0 ? 1 : _params$showWhenScrol,
         _params$onClickScroll = params.onClickScrollTo,
@@ -37,10 +37,26 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         textColor = _params$textColor === void 0 ? '#fff' : _params$textColor,
         _params$zIndex = params.zIndex,
         zIndex = _params$zIndex === void 0 ? 1 : _params$zIndex;
+    var targetElem = params.targetElem || 'body';
+
+    var targetElemType = _typeof(targetElem);
+
+    if (!['string', 'object'].includes(targetElemType)) {
+      throw 'targetElem has to be a selector string or a DOMElement itself';
+    }
+
+    if (targetElemType == 'string') {
+      targetElem = document.querySelector(targetElem);
+    }
+
+    if (!targetElem) {
+      throw 'targetElem is invalid. (Bad id string or null element)';
+    }
+
     appendStyles();
     var upEl = appendElement();
     var hidden = true;
-    window.addEventListener('scroll', adapt);
+    targetElem.addEventListener('scroll', adapt);
     adapt();
 
     function adapt() {
@@ -74,7 +90,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         event.preventDefault();
         scrollUp();
       });
-      document.body.appendChild(upEl);
+      targetElem.appendChild(upEl);
       return upEl;
     }
 
@@ -113,13 +129,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     }
 
     function getScrollTop() {
-      return document.body.scrollTop || document.documentElement && document.documentElement.scrollTop || 0;
+      return targetElem != document.body ? targetElem.scrollTop : document.body.scrollTop || document.documentElement && document.documentElement.scrollTop || 0;
     }
 
     function setScrollTop(value) {
-      document.body.scrollTop = value;
+      targetElem.scrollTop = value;
 
-      if (document.documentElement) {
+      if (targetElem != document.body && document.documentElement) {
         document.documentElement.scrollTop = value;
       }
     }
