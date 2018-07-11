@@ -37,7 +37,7 @@
     }
 
     if (!targetElem) {
-        throw 'targetElem is invalid. (Bad selector string or null element)';
+        throw 'targetElem is invalid. (Bad id string or null element)';
     }
 
     appendStyles()
@@ -148,5 +148,6 @@
         document.documentElement.scrollTop = value
       }
     }
+  }
   // FUNCTION END
 }))
