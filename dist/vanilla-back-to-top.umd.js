@@ -16,7 +16,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   function addBackToTop() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var _params$id = params.id,
-        id = _params$id === void 0 ? 'back-to-top-' + Date.now() : _params$id,
+        id = _params$id === void 0 ? 'back-to-top' : _params$id,
         _params$showWhenScrol = params.showWhenScrollTopIs,
         showWhenScrollTopIs = _params$showWhenScrol === void 0 ? 1 : _params$showWhenScrol,
         _params$onClickScroll = params.onClickScrollTo,
@@ -37,26 +37,26 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         textColor = _params$textColor === void 0 ? '#fff' : _params$textColor,
         _params$zIndex = params.zIndex,
         zIndex = _params$zIndex === void 0 ? 1 : _params$zIndex;
-    var targetElem = params.targetElem || 'body';
+    var scrollContainer = params.scrollContainer || 'body';
 
-    var targetElemType = _typeof(targetElem);
+    var scrollContainerType = _typeof(scrollContainer);
 
-    if (!['string', 'object'].includes(targetElemType)) {
-      throw 'targetElem has to be a selector string or a DOMElement itself';
+    if (!['string', 'object'].includes(scrollContainerType)) {
+      throw 'scrollContainer has to be a selector string or a DOMElement itself';
     }
 
-    if (targetElemType == 'string') {
-      targetElem = document.querySelector(targetElem);
+    if (scrollContainerType == 'string') {
+      scrollContainer = document.querySelector(scrollContainer);
     }
 
-    if (!targetElem) {
-      throw 'targetElem is invalid. (Bad id string or null element)';
+    if (!scrollContainer) {
+      throw 'scrollContainer is invalid. (Bad id string or null element)';
     }
 
     appendStyles();
     var upEl = appendElement();
     var hidden = true;
-    targetElem.addEventListener('scroll', adapt);
+    scrollContainer.addEventListener('scroll', adapt);
     adapt();
 
     function adapt() {
@@ -90,7 +90,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         event.preventDefault();
         scrollUp();
       });
-      targetElem.appendChild(upEl);
+      scrollContainer.appendChild(upEl);
       return upEl;
     }
 
@@ -129,13 +129,13 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     }
 
     function getScrollTop() {
-      return targetElem != document.body ? targetElem.scrollTop : document.body.scrollTop || document.documentElement && document.documentElement.scrollTop || 0;
+      return scrollContainer != document.body ? scrollContainer.scrollTop : document.body.scrollTop || document.documentElement && document.documentElement.scrollTop || 0;
     }
 
     function setScrollTop(value) {
-      targetElem.scrollTop = value;
+      scrollContainer.scrollTop = value;
 
-      if (targetElem != document.body && document.documentElement) {
+      if (scrollContainer != document.body && document.documentElement) {
         document.documentElement.scrollTop = value;
       }
     }

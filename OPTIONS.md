@@ -5,7 +5,7 @@ None of them are required, call `addBackToTop()` without params to get nice defa
 ```js
 addBackToTop({
   id: 'back-to-top',
-  targetElem: 'body',  // selector string or DOMElement
+  scrollContainer: 'body',  // selector string or DOMElement
   showWhenScrollTopIs: 1, // px
   onClickScrollTo: 0, // px
   scrollDuration: 100, // ms
