@@ -1,11 +1,11 @@
 {
-  "name": "vanilla-back-to-top",
-  "version": "7.1.15",
+  "name": "iaso-vanilla-back-to-top",
+  "version": "1.3.0",
   "description": "Simple and tiny Back To Top button with no dependencies, for whole window or specific(s) div(s). Hides when on top, scrolls up smoothly when clicked. Works equally great with Vue, React, Angular and without frameworks on Jekyll, Hugo and Hexo",
-  "main": "dist/vanilla-back-to-top.umd.js",
+  "main": "dist/iaso-vanilla-back-to-top.umd.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vfeskov/vanilla-back-to-top.git"
+    "url": "https://github.com/IasoDigital/iaso-vanilla-back-to-top.git"
   },
   "keywords": [
     "back",
