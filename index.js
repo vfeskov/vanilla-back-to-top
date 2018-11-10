@@ -18,7 +18,7 @@
       ease = inOutSine, // any one from https://www.npmjs.com/package/ease-component will do
       id = 'back-to-top',
       innerHTML = '<svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>', // https://material.io/icons/#ic_keyboard_arrow_up
-      onClickScrollTo = 0, // px
+      onClickScrollTo = 0, // px, or a function returning number
       scrollContainer = document.body, // or a DOM element, e.g., document.getElementById('content')
       scrollDuration = 100, // ms
       showWhenScrollTopIs = 1, // px
@@ -111,13 +111,14 @@
     }
 
     function scrollUp () {
+      const scrollTo = typeof onClickScrollTo === 'function' ? onClickScrollTo() : onClickScrollTo
       const { performance, requestAnimationFrame } = window
       if (scrollDuration <= 0 || typeof performance === 'undefined' || typeof requestAnimationFrame === 'undefined') {
-        return setScrollTop(onClickScrollTo)
+        return setScrollTop(scrollTo)
       }
       const start = performance.now()
       const initScrollTop = getScrollTop()
-      const pxsToScrollBy = initScrollTop - onClickScrollTo
+      const pxsToScrollBy = initScrollTop - scrollTo
 
       requestAnimationFrame(step)
 

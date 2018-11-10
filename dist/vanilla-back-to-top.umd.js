@@ -97,17 +97,18 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     }
 
     function scrollUp() {
+      var scrollTo = typeof onClickScrollTo === 'function' ? onClickScrollTo() : onClickScrollTo;
       var _window = window,
           performance = _window.performance,
           requestAnimationFrame = _window.requestAnimationFrame;
 
       if (scrollDuration <= 0 || typeof performance === 'undefined' || typeof requestAnimationFrame === 'undefined') {
-        return setScrollTop(onClickScrollTo);
+        return setScrollTop(scrollTo);
       }
 
       var start = performance.now();
       var initScrollTop = getScrollTop();
-      var pxsToScrollBy = initScrollTop - onClickScrollTo;
+      var pxsToScrollBy = initScrollTop - scrollTo;
       requestAnimationFrame(step);
 
       function step(timestamp) {
