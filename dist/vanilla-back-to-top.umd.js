@@ -17,32 +17,39 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
   function addBackToTop() {
     var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var _params$id = params.id,
-        id = _params$id === void 0 ? 'back-to-top' : _params$id,
-        _params$showWhenScrol = params.showWhenScrollTopIs,
-        showWhenScrollTopIs = _params$showWhenScrol === void 0 ? 1 : _params$showWhenScrol,
-        _params$onClickScroll = params.onClickScrollTo,
-        onClickScrollTo = _params$onClickScroll === void 0 ? 0 : _params$onClickScroll,
-        _params$scrollDuratio = params.scrollDuration,
-        scrollDuration = _params$scrollDuratio === void 0 ? 100 : _params$scrollDuratio,
-        _params$innerHTML = params.innerHTML,
-        innerHTML = _params$innerHTML === void 0 ? '<svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>' : _params$innerHTML,
-        _params$diameter = params.diameter,
-        diameter = _params$diameter === void 0 ? 56 : _params$diameter,
-        _params$size = params.size,
-        size = _params$size === void 0 ? diameter : _params$size,
+    var _params$backgroundCol = params.backgroundColor,
+        backgroundColor = _params$backgroundCol === void 0 ? '#000' : _params$backgroundCol,
         _params$cornerOffset = params.cornerOffset,
         cornerOffset = _params$cornerOffset === void 0 ? 20 : _params$cornerOffset,
-        _params$backgroundCol = params.backgroundColor,
-        backgroundColor = _params$backgroundCol === void 0 ? '#000' : _params$backgroundCol,
+        _params$diameter = params.diameter,
+        diameter = _params$diameter === void 0 ? 56 : _params$diameter,
+        _params$ease = params.ease,
+        ease = _params$ease === void 0 ? inOutSine : _params$ease,
+        _params$id = params.id,
+        id = _params$id === void 0 ? 'back-to-top' : _params$id,
+        _params$innerHTML = params.innerHTML,
+        innerHTML = _params$innerHTML === void 0 ? '<svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>' : _params$innerHTML,
+        _params$onClickScroll = params.onClickScrollTo,
+        onClickScrollTo = _params$onClickScroll === void 0 ? 0 : _params$onClickScroll,
+        _params$scrollContain = params.scrollContainer,
+        scrollContainer = _params$scrollContain === void 0 ? document.body : _params$scrollContain,
+        _params$scrollDuratio = params.scrollDuration,
+        scrollDuration = _params$scrollDuratio === void 0 ? 100 : _params$scrollDuratio,
+        _params$showWhenScrol = params.showWhenScrollTopIs,
+        showWhenScrollTopIs = _params$showWhenScrol === void 0 ? 1 : _params$showWhenScrol,
+        _params$size = params.size,
+        size = _params$size === void 0 ? diameter : _params$size,
         _params$textColor = params.textColor,
         textColor = _params$textColor === void 0 ? '#fff' : _params$textColor,
         _params$zIndex = params.zIndex,
         zIndex = _params$zIndex === void 0 ? 1 : _params$zIndex;
+    var scrollContainerIsBody = scrollContainer === document.body;
+    var scrollDocumentElement = scrollContainerIsBody && document.documentElement;
     appendStyles();
     var upEl = appendElement();
     var hidden = true;
-    window.addEventListener('scroll', adapt);
+    var scrollEmitter = scrollContainerIsBody ? window : scrollContainer;
+    scrollEmitter.addEventListener('scroll', adapt);
     adapt();
 
     function adapt() {
@@ -104,9 +111,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       requestAnimationFrame(step);
 
       function step(timestamp) {
-        var delta = timestamp - start;
-        var progress = Math.min(delta / scrollDuration, 1);
-        setScrollTop(initScrollTop - Math.round(progress * pxsToScrollBy));
+        var progress = Math.min((timestamp - start) / scrollDuration, 1);
+        setScrollTop(initScrollTop - Math.round(ease(progress) * pxsToScrollBy));
 
         if (progress < 1) {
           requestAnimationFrame(step);
@@ -115,15 +121,19 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     }
 
     function getScrollTop() {
-      return document.body.scrollTop || document.documentElement && document.documentElement.scrollTop || 0;
+      return scrollContainer.scrollTop || scrollDocumentElement && document.documentElement.scrollTop || 0;
     }
 
     function setScrollTop(value) {
-      document.body.scrollTop = value;
+      scrollContainer.scrollTop = value;
 
-      if (document.documentElement) {
+      if (scrollDocumentElement) {
         document.documentElement.scrollTop = value;
       }
+    }
+
+    function inOutSine(n) {
+      return 0.5 * (1 - Math.cos(Math.PI * n));
     }
   } // FUNCTION END
 
