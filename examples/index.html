@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./examples.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="./app.js"></script>
+
+    <script src="../dist/vanilla-back-to-top.min.js"></script>
+    <script>
+      addBackToTop(CURRENT_EXAMPLE.params);
+      if (CURRENT_EXAMPLE.styles) {
+        document.body.insertAdjacentHTML('beforeend', `<style>${CURRENT_EXAMPLE.styles}</style>`);
+      }
+      setTimeout(() => scrollTo(0,1));
+    </script>
+  </body>
+</html>
