@@ -6,9 +6,9 @@
 
 Simple and tiny Back To Top button with no dependencies. Hides when on top, scrolls up smoothly when clicked. Works equally great with [Vue](https://vuejs.org/), [React](https://reactjs.org/), [Angular](https://angular.io/) and without frameworks on [Jekyll](https://jekyllrb.com/), [Hugo](https://gohugo.io/) and [Hexo](https://hexo.io)
 
-[<img src="https://i.pi.gy/O1Gbz.png" width="67" /><img src="https://i.pi.gy/8Z0Nj.png" width="54"><img src="https://i.pi.gy/0P8Nr.png" width="120"><img src="https://i.pi.gy/Vabg0.png" width="72">](https://github.com/vfeskov/vanilla-back-to-top/blob/v7.1.14/EXAMPLES.md)<br/>
+[<img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/coral.png" width="66" /><img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/smaller.png" width="57" /><img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/rectangle.png" width="121" /><img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/different-arrow.png" width="72" />](https://github.com/vfeskov/vanilla-back-to-top/blob/v7.1.14/EXAMPLES.md)<br/>
 
-<img src="https://i.pi.gy/ee5b5.gif" width="320px"/>
+<img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/live.gif" width="320px"/>
 
 [Live demo](https://vfeskov.com/)
 

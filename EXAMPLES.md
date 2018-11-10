@@ -1,6 +1,6 @@
 # Examples
 
-<img src="https://i.pi.gy/leWN4.png" width="72"/> (default)<br/>
+<img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/default.png" width="66"/> (default)<br/>
 ```html
 <script>addBackToTop()</script>
 ```
@@ -9,7 +9,7 @@
 ----------
 
 
-<img src="https://i.pi.gy/O1Gbz.png" width="67" /><br/>
+<img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/coral.png" width="66" /><br/>
 ```html
 <script>addBackToTop({
   diameter: 56,
@@ -22,7 +22,7 @@
 ----------
 
 
-<img src="https://i.pi.gy/8Z0Nj.png" width="54" /><br/>
+<img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/smaller.png" width="57" /><br/>
 ```html
 <script>addBackToTop({
   diameter: 40,
@@ -35,7 +35,7 @@
 ----------
 
 
-<img src="https://i.pi.gy/0P8Nr.png" width="120" /><br/>
+<img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/rectangle.png" width="121" /><br/>
 ```html
 <script>addBackToTop({
   backgroundColor: '#fff',
@@ -60,7 +60,7 @@
 ----------
 
 
-<img src="https://i.pi.gy/Vabg0.png" width="72" /><br/>
+<img src="https://raw.githubusercontent.com/vfeskov/vanilla-back-to-top/fd6b302da46f551fe3d1085029fcb8ba67517388/examples/images/different-arrow.png" width="72" /><br/>
 ```html
 <script>addBackToTop({
   backgroundColor: '#ffda0c',
