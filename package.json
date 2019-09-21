@@ -1,6 +1,6 @@
 {
   "name": "vanilla-back-to-top",
-  "version": "7.2.0",
+  "version": "7.2.1",
   "description": "Simple and tiny Back To Top button with no dependencies. Hides when on top, scrolls up smoothly when clicked. Works equally great with Vue, React, Angular and without frameworks on Jekyll, Hugo and Hexo",
   "main": "dist/vanilla-back-to-top.umd.js",
   "repository": {
