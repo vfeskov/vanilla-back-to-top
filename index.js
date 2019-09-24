@@ -54,6 +54,7 @@
       if (hidden) { return }
       upEl.className = 'hidden'
       hidden = true
+      upEl.blur()
     }
 
     function appendElement () {
